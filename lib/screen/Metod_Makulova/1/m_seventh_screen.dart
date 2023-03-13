@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/text_style.dart';
-import '../../widget/text_input.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MSeventhScreen extends StatefulWidget {
   MSeventhScreen({super.key});
@@ -11,33 +13,23 @@ class MSeventhScreen extends StatefulWidget {
 }
 
 class _MSeventhScreenState extends State<MSeventhScreen> {
-  final _oldfocus = FocusNode();
-  final _peoplefocus = FocusNode();
-  final _placesfocus = FocusNode();
-  final _sitshfocus = FocusNode();
+  final _oldRfocus = FocusNode();
+  final _otherpeoplefocus = FocusNode();
+  final _placeRsfocus = FocusNode();
+  final _situationRfocus = FocusNode();
 
-  final oldController = TextEditingController();
-  final peopleController = TextEditingController();
-  final placesController = TextEditingController();
-  final sitshController = TextEditingController();
-
-  @override
-  void dispose() {
-    // _problemfocus.dispose();
-    // _situationfocus.dispose();
-    // _levfocus.dispose();
-    // problemController.dispose();
-    // situationController.dispose();
-    // levController.dispose();
-    // super.dispose();
-  }
+  final oldRController = TextEditingController();
+  final otherpeopleRController = TextEditingController();
+  final placesRController = TextEditingController();
+  final situationRController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final regresion = Provider.of<Regresion>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ВМЕСТО РЕГРЕССИ',
+          'ВМЕСТО РЕГРЕССИ 7',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -62,11 +54,12 @@ class _MSeventhScreenState extends State<MSeventhScreen> {
               height: 15,
             ),
             TextFormFieldWidget(
-              focusNode: _oldfocus,
-              currentFocus: _oldfocus,
-              nextFocus: _placesfocus,
+              focusNode: _oldRfocus,
+              currentFocus: _oldRfocus,
+              nextFocus: _placeRsfocus,
+              Texthelper: 'Например: 3 года, 5 лет, 3 месяца',
               textChild: ('Возраст'),
-              Controller: oldController,
+              Controller: oldRController,
             ),
             SizedBox(
               height: 15,
@@ -87,11 +80,11 @@ class _MSeventhScreenState extends State<MSeventhScreen> {
               height: 15,
             ),
             TextFormFieldWidget(
-              focusNode: _placesfocus,
-              currentFocus: _placesfocus,
-              nextFocus: _peoplefocus,
+              focusNode: _placeRsfocus,
+              currentFocus: _placeRsfocus,
+              nextFocus: _otherpeoplefocus,
               textChild: ('Место'),
-              Controller: placesController,
+              Controller: placesRController,
             ),
             SizedBox(
               height: 15,
@@ -111,11 +104,11 @@ class _MSeventhScreenState extends State<MSeventhScreen> {
               height: 15,
             ),
             TextFormFieldWidget(
-              focusNode: _peoplefocus,
-              currentFocus: _peoplefocus,
-              nextFocus: _sitshfocus,
+              focusNode: _otherpeoplefocus,
+              currentFocus: _otherpeoplefocus,
+              nextFocus: _situationRfocus,
               textChild: ('Один или с кем-то'),
-              Controller: oldController,
+              Controller: otherpeopleRController,
             ),
             SizedBox(
               height: 15,
@@ -135,11 +128,12 @@ class _MSeventhScreenState extends State<MSeventhScreen> {
               height: 15,
             ),
             TextFormFieldWidget(
-              focusNode: _sitshfocus,
-              currentFocus: _sitshfocus,
-              nextFocus: _placesfocus,
+              focusNode: _situationRfocus,
+              currentFocus: _situationRfocus,
+              nextFocus: _placeRsfocus,
               textChild: ('Ситуация'),
-              Controller: sitshController,
+              Texthelper: 'Например: мама ругает тебя',
+              Controller: situationRController,
             ),
             SizedBox(
               height: 15,
@@ -149,6 +143,14 @@ class _MSeventhScreenState extends State<MSeventhScreen> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          regresion.changeOR(oldRController.text);
+          regresion.changeOPR(otherpeopleRController.text);
+          regresion.changeP(placesRController.text);
+          regresion.changeSR(situationRController.text);
+          print(regresion.oldR.toString());
+          print(regresion.situationR.toString());
+          print(regresion.placeR.toString());
+          print(regresion.otherpeople.toString());
           Navigator.pushNamed(context, '/M8');
         },
         tooltip: 'Дальше',

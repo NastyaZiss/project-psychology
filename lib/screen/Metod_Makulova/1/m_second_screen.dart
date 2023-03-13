@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../info_classes/m_info.dart';
-import '../../main.dart';
-import '../../utils/text_style.dart';
-import '../../widget/text_input.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../main.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MSecondScreen extends StatefulWidget {
   const MSecondScreen({super.key});
@@ -14,28 +14,24 @@ class MSecondScreen extends StatefulWidget {
 }
 
 class _MSecondScreenState extends State<MSecondScreen> {
-  final _problemfocus = FocusNode();
-  final _situationfocus = FocusNode();
-  final _levfocus = FocusNode();
+  final _purposefocus = FocusNode();
 
-  final problemController = TextEditingController();
-  final situationController = TextEditingController();
-  final levController = TextEditingController();
+  final purposeController = TextEditingController();
 
   @override
   void dispose() {
-    _problemfocus.dispose();
-    _situationfocus.dispose();
-    _levfocus.dispose();
-    problemController.dispose();
-    situationController.dispose();
-    levController.dispose();
+    purposeController.dispose();
+    _purposefocus.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final name = Provider.of<Name>(context).name;
+    // final name = Provider.of<Name>(context).name;
+    final problem = Provider.of<Problem>(context).problem;
+    final purpose = Provider.of<Cangefelling>(context);
+    // final purpose = purpose.purpose;
+    // final purposep = Provider.of<Cangefelling>(context).purpose;
 
     return Scaffold(
       appBar: AppBar(
@@ -98,20 +94,30 @@ class _MSecondScreenState extends State<MSecondScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '3. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Как бы вы хотели себя чувствовать в {$name} вместо этого?',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
+                // RichText(
+                //   text: TextSpan(
+                //       style: TextStyleG.h3baseTextStyle,
+                //       children: <TextSpan>[
+                //         new TextSpan(
+                //             text: '3. ', style: TextStyleG.h3boldTextStyle),
+                //         new TextSpan(
+                //             text:
+                //                 'Как бы вы хотели себя чувствовать в $problem вместо этого?',
+                //             style: TextStyleG.h3baseTextStyle),
+                //       ]),
+                // ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // TextFormFieldWidget(
+                //   focusNode: _purposefocus,
+                //   currentFocus: _purposefocus,
+                //   nextFocus: _purposefocus,
+                //   textChild: ('Цель клиента'),
+                //   Controller: purposeController,
+                // ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
               ],
             )),
@@ -135,6 +141,8 @@ class _MSecondScreenState extends State<MSecondScreen> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          // purpose.changePurpose(purposeController.text);
+          // print(purpose.purpose.toString());
           Navigator.pushNamed(context, '/M3');
         },
         tooltip: 'Дальше',

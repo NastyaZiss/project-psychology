@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:skripts/utils/color.dart';
 
-import '../../utils/text_style.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
 
 class MFifthScreen extends StatefulWidget {
   const MFifthScreen({super.key});
@@ -13,6 +15,9 @@ class MFifthScreen extends StatefulWidget {
 class _MFifthScreenState extends State<MFifthScreen> {
   @override
   Widget build(BuildContext context) {
+    final problem = Provider.of<Problem>(context).problem;
+    final aboutnegativ = Provider.of<Diagnostic>(context).aboutnegativ;
+    final placebody = Provider.of<Diagnostic>(context).placebody;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -70,7 +75,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '3.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Обрати внимание на свои мысли по поводу «страха метро», перестань им сопротивляться, позволь самым неприятным мыслям приходить. ',
+                              'Обрати внимание на свои мысли по поводу «$problem», перестань им сопротивляться, позволь самым неприятным мыслям приходить. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -100,7 +105,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '3.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Обрати внимание на свои мысли по поводу «страха метро», перестань им сопротивляться, позволь самым неприятным мыслям приходить. ',
+                              'Обрати внимание на чувство «$aboutnegativ $placebody», перестань ему сопротивляться, ведь ты много раз боролся с ним и это ни к чему не привело. Потому что это чувство часть тебя. Ты боролся с самим собой и значит никак не мог выиграть. Сдайся этому чувству, позволь ему взять верх над тобой. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -130,7 +135,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '4.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Обрати внимание на физическую реакцию тела, когда у тебя «feeling». На то как телу хочется напрячься. Перестань сопротивляться этой реакции. ',
+                              'Обрати внимание на физическую реакцию тела, когда у тебя «$problem». На то как телу хочется напрячься. Перестань сопротивляться этой реакции. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -163,7 +168,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '5.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Позволь мыслям о «feelingо» перетекать в чувство «глупый в груди» и далее перетекать в реакцию тела. ',
+                              'Позволь мыслям о «$problem» перетекать в чувство «$aboutnegativ $placebody» и далее перетекать в реакцию тела. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skripts/info_classes/m_info.dart';
 
-import '../../utils/text_style.dart';
-import '../../widget/text_input.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MFourthScreen extends StatefulWidget {
   const MFourthScreen({super.key});
@@ -11,25 +13,29 @@ class MFourthScreen extends StatefulWidget {
 }
 
 class _MFourthScreenState extends State<MFourthScreen> {
-  final _problemfocus = FocusNode();
   final _placefocus = FocusNode();
+  final _aboutnegativfocus = FocusNode();
+  final _placeTwofocus = FocusNode();
 
-  final problemController = TextEditingController();
   final placeController = TextEditingController();
+  final aboutnegativController = TextEditingController();
+  final placeTwoController = TextEditingController();
 
   @override
   void dispose() {
-    _problemfocus.dispose();
     placeController.dispose();
-
-    problemController.dispose();
-    placeController.dispose();
-
+    aboutnegativController.dispose();
+    placeTwoController.dispose();
+    _placeTwofocus.dispose();
+    _aboutnegativfocus.dispose();
+    _placefocus.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final placeandaboutnegativ = Provider.of<Diagnostic>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -71,6 +77,16 @@ class _MFourthScreenState extends State<MFourthScreen> {
                     ]),
               ),
               SizedBox(
+                height: 10,
+              ),
+              TextFormFieldWidget(
+                focusNode: _placeTwofocus,
+                nextFocus: _aboutnegativfocus,
+                currentFocus: _placeTwofocus,
+                textChild: ('Место'),
+                Controller: placeTwoController,
+              ),
+              SizedBox(
                 height: 20,
               ),
               RichText(
@@ -85,6 +101,7 @@ class _MFourthScreenState extends State<MFourthScreen> {
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
+
               SizedBox(
                 height: 20,
               ),
@@ -96,9 +113,19 @@ class _MFourthScreenState extends State<MFourthScreen> {
                           text: '4.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Далее, представьте, что это произошло, скажите, каким вы себя почувствуете, если с вами это произойдет – начальник вас уволит. ',
+                              'Далее, представьте, что это произошло, скажите, каким вы себя почувствуете, если с вами это произойдет. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              TextFormFieldWidget(
+                focusNode: _aboutnegativfocus,
+                nextFocus: _placefocus,
+                currentFocus: _aboutnegativfocus,
+                textChild: ('Негативное самоопределение'),
+                Controller: aboutnegativController,
               ),
               SizedBox(
                 height: 15,
@@ -119,43 +146,33 @@ class _MFourthScreenState extends State<MFourthScreen> {
                 height: 15,
               ),
               TextFormFieldWidget(
-                // userInfomy: newUser.name,
-                // userInfo: 'С чем конкретно вы хотите поработать?',
                 focusNode: _placefocus,
-                // currentFocus: _situationfocus,
-                // nextFocus: _levfocus,
+                currentFocus: _placefocus,
+                nextFocus: _aboutnegativfocus,
                 textChild: ('Место'),
                 Controller: placeController,
-                // maskCustom: MaskTextInputFormatter(),
-                // vallid_fun: (dynamic value) {
-                //   final _nameExp = RegExp(r'^[А-Яа-я]+$');
-                //   if (value.isEmpty) {
-                //     return 'Введите имя';
-                //   } else if (!_nameExp.hasMatch(value)) {
-                //     return 'Это не Имя';
-                //   } else {
-                //     return null;
-                //   }
-                // },
               ),
               SizedBox(
                 height: 15,
               ),
-              Text(
-                'Итого: негативное самоопределение feeling} в животе. С ним и будем работать.',
-                style: TextStyleG.h4akTextStyle,
-              ),
-              // Container(
-              //   color: Colors.red,
-              //   width: 20,
-              //   height: 160,
-              // )
+              // Text(
+              //   'Итого: негативное самоопределение feeling} в животе. С ним и будем работать.',
+              //   style: TextStyleG.h4akTextStyle,
+              // ),
+              SizedBox(
+                height: 130,
+              )
             ],
           ),
         ),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          placeandaboutnegativ.changeP(placeController.text);
+          print(placeandaboutnegativ.placebody.toString());
+
+          placeandaboutnegativ.changeAN(aboutnegativController.text);
+          print(placeandaboutnegativ.aboutnegativ.toString());
           Navigator.pushNamed(context, '/M5');
         },
         tooltip: 'Дальше',

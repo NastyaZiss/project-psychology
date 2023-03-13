@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
 
-import '../../utils/text_style.dart';
+import '../../../utils/text_style.dart';
 
 class MTridScreen extends StatefulWidget {
   const MTridScreen({super.key});
@@ -12,24 +12,24 @@ class MTridScreen extends StatefulWidget {
 }
 
 class _MTridScreenState extends State<MTridScreen> {
-  final _problemfocus = FocusNode();
-  final _situationfocus = FocusNode();
-  final _levfocus = FocusNode();
+  // final _problemfocus = FocusNode();
+  // final _situationfocus = FocusNode();
+  // final _levfocus = FocusNode();
 
-  final problemController = TextEditingController();
-  final situationController = TextEditingController();
-  final levController = TextEditingController();
+  // final problemController = TextEditingController();
+  // final situationController = TextEditingController();
+  // final levController = TextEditingController();
 
-  @override
-  void dispose() {
-    _problemfocus.dispose();
-    _situationfocus.dispose();
-    _levfocus.dispose();
-    problemController.dispose();
-    situationController.dispose();
-    levController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _problemfocus.dispose();
+  //   _situationfocus.dispose();
+  //   _levfocus.dispose();
+  //   problemController.dispose();
+  //   situationController.dispose();
+  //   levController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

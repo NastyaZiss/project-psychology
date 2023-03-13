@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/text_style.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
 
 class MSixthScreen extends StatefulWidget {
   const MSixthScreen({super.key});
@@ -12,6 +14,11 @@ class MSixthScreen extends StatefulWidget {
 class _MSixthScreenState extends State<MSixthScreen> {
   @override
   Widget build(BuildContext context) {
+    final problem = Provider.of<Problem>(context).problem;
+    final aboutnegativ = Provider.of<Diagnostic>(context).aboutnegativ;
+    final place = Provider.of<Diagnostic>(context).placebody;
+    final name = Provider.of<Name>(context).name;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -48,7 +55,7 @@ class _MSixthScreenState extends State<MSixthScreen> {
                         text: '2.	', style: TextStyleG.h3boldTextStyle),
                     new TextSpan(
                         text:
-                            'Хорошо. Сейчас ты начинаешь понимать, что все чувства нам для чего-то нужны, они выполняют какую-то  работу, защищают, оберегают, от чего-то помогают . Также этот « Глупый» , в « Животе» , тебе зачем-то нужно . Оно тебе в чем-то помогало, защищало, оберегало, НО – то что помогало маленькому « Васе» там и тогда , взрослому « Василию» здесь и сейчас может мешать.Но это чувство по-прежнему  выполняет ту работу, которую оно решило выполнять в детстве, там и тогда когда оно у тебя возникло впервые. Поэтому ты начинаешь понимать , что это чувство твой друг, твой союзник. Что ты часть него, оно часть тебя, вы две части единого целого, поэтому понимая, что это чувство твой союзник, обратись к нему и спроси его: «Зачем ты вызываешь у меня этот дискомфорт когда {proplem}?',
+                            'Хорошо. Сейчас ты начинаешь понимать, что все чувства нам для чего-то нужны, они выполняют какую-то  работу, защищают, оберегают, от чего-то помогают .Также это «$aboutnegativ» , в «$place» , тебе зачем-то нужно. Оно тебе в чем-то помогало, защищало, оберегало, НО – то что помогало маленьк(-ому)(-ой) «$name» там и тогда, взросл(-ому)(-oй) «$name» здесь и сейчас может мешать. Но это чувство по-прежнему выполняет ту работу, которую оно решило выполнять в детстве, там и тогда когда оно у тебя возникло впервые. Поэтому ты начинаешь понимать, что это чувство твой друг, твой союзник. Что ты часть него, оно часть тебя, вы две части единого целого, поэтому понимая, что это чувство твой союзник, обратись к нему и спроси его: «Зачем ты вызываешь у меня этот дискомфорт когда "$problem"?',
                         style: TextStyleG.h3baseTextStyle),
                   ]),
             ),
@@ -60,7 +67,7 @@ class _MSixthScreenState extends State<MSixthScreen> {
               style: TextStyleG.h4akTextStyle,
             ),
             SizedBox(
-              height: 15,
+              height: 70,
             ),
             // Container(
             //   height: 180,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:skripts/info_classes/m_info.dart';
 
-import '../../utils/text_style.dart';
-import '../../widget/text_input.dart';
+import '../../../info_classes/m_yudro.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MEleventhScreen extends StatefulWidget {
   const MEleventhScreen({super.key});
@@ -11,27 +14,28 @@ class MEleventhScreen extends StatefulWidget {
 }
 
 class _MEleventhScreenState extends State<MEleventhScreen> {
-  final _placestwofocus = FocusNode();
-  final _oldtwofocus = FocusNode();
-  final _focus = FocusNode();
+  final _situationYudrofocus = FocusNode();
 
-  final problemController = TextEditingController();
-  final situationController = TextEditingController();
-  final placestwoController = TextEditingController();
+  final situationYudroController = TextEditingController();
 
   @override
   void dispose() {
-    _oldtwofocus.dispose();
-    _placestwofocus.dispose();
-    _oldtwofocus.dispose();
-    problemController.dispose();
-    situationController.dispose();
-    placestwoController.dispose();
+    _situationYudrofocus.dispose();
+    situationYudroController.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final yudro = Provider.of<Yudro>(context);
+    final situation = Provider.of<Situation>(context).situation;
+    final oldR = Provider.of<Regresion>(context).oldR;
+    final situationR = Provider.of<Regresion>(context).situationR;
+    final placebody = Provider.of<Instinct>(context).placebody;
+
+    //выводя
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -52,7 +56,7 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                           text: '1. ', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Там и тогда в пять лет, когда лает собака, сконцентрируйся на этом чувстве в груди. ',
+                              'Там и тогда в $oldR лет, когда $situationR, сконцентрируйся на этом чувстве $placebody. ',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -67,25 +71,25 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                           text: '2. ', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Находясь там и тогда в возрасте «пяти лет» (возраст психотравмы), ты уже знаешь, что часто чувства не растут на пустом месте. Возможно, до этого было что-то, что послужило почвой для острой реакции на «лай собаки» (описание травмы). Поэтому там и тогда сконцентрируйся на этом чувстве «в груди»',
+                              'Находясь там и тогда в возрасте «$oldR » (возраст психотравмы), ты уже знаешь, что часто чувства не растут на пустом месте. Возможно, до этого было что-то, что послужило почвой для острой реакции на «$situationR» (описание травмы). Поэтому там и тогда сконцентрируйся на этом чувстве «$placebody»',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
               SizedBox(
                 height: 10,
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '1. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Там и тогда в пять лет, когда лает собака, сконцентрируйся на этом чувстве в груди. ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
+              // RichText(
+              //   text: TextSpan(
+              //       style: TextStyleG.h3baseTextStyle,
+              //       children: <TextSpan>[
+              //         new TextSpan(
+              //             text: '1. ', style: TextStyleG.h3boldTextStyle),
+              //         new TextSpan(
+              //             text:
+              //                 'Там и тогда в $oldR, когда $situationR, сконцентрируйся на этом чувстве $placebody. ',
+              //             style: TextStyleG.h3baseTextStyle),
+              //       ]),
+              // ),
               RichText(
                 text: TextSpan(
                     style: TextStyleG.h3baseTextStyle,
@@ -129,7 +133,7 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                           text: 'Два. ', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Еще ниже и глубже. Настолько глубоко, что когда я хлопну в ладоши и скажу «причина», ты окажешься в самой ранней ситуации, связанной с данным чувством, том моменте, когда оно появилось в первый раз. ',
+                              'Еще ниже и глубже. Настолько глубоко, что когда я хлопну в ладоши и скажу «причина», ты окажешься в самой ранней ситуации, связанной с данным чувством, в том моменте, когда оно появилось в первый раз.',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -145,24 +149,48 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
+              SizedBox(
+                height: 20,
+              ),
               TextFormFieldWidget(
-                focusNode: _placestwofocus,
-                currentFocus: _placestwofocus,
-                nextFocus: _oldtwofocus,
-                textChild: ('Ситуация клиента'),
-                Controller: placestwoController,
+                focusNode: _situationYudrofocus,
+                currentFocus: _situationYudrofocus,
+                nextFocus: _situationYudrofocus,
+                textChild: ('место'),
+                Controller: situationYudroController,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
+                  ),
+                  onPressed: () {
+                    yudro.changeSY(situationYudroController.text);
+                    print(yudro.situationY.toString());
+                    Navigator.pushNamed(context, '/M30');
+                  },
+                  child: Text(
+                      'Если не нашли ядро, прорабатывем психотравму(ядро). Тут тогда ситуация клиента будет пустая')),
+              SizedBox(
+                height: 80,
               ),
             ]),
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
+          yudro.changeSY(situationYudroController.text);
+          print(yudro.situationY.toString());
+
           Navigator.pushNamed(context, '/M12');
         },
         tooltip: 'Дальше',
-        child: const Icon(Icons.navigate_next),
+        label: Text('Если нашли Ядро'),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

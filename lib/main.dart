@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:skripts/info_classes/m_inference.dart';
 import 'package:skripts/info_classes/m_info.dart';
-import 'package:skripts/screen/Metod_Makulova/m_eighth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_eleventh_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_fifth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_first_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_fourth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_ninth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_second_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_seventh_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_sixth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_tenth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_tfeilfth_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_trid_screen.dart';
+import 'package:skripts/info_classes/percent.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_eighth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/m_eleventh_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_fifth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_first_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/m_fourtenteenth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_fourth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_ninth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_second_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_seventh_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_seventeenth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_sixteenth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_sixth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_tenth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/m_thirteenth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/2/m_tweilfth_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/1/m_trid_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/metod_makulova_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/piramida_nevroza.dart';
 import 'package:skripts/screen/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/screen/m_fifteenth_screen.dart';
+
+import 'info_classes/m_yudro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,9 +43,17 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => Problem()),
         ChangeNotifierProvider(create: (_) => Situation()),
         ChangeNotifierProvider(create: (_) => Cangefelling()),
+        ChangeNotifierProvider(create: (_) => Diagnostic()),
+        ChangeNotifierProvider(create: (_) => Regresion()),
+        ChangeNotifierProvider(create: (_) => Instinct()),
+        ChangeNotifierProvider(create: (_) => InferenceClass()),
+        ChangeNotifierProvider(create: (_) => InferenceY()),
+        ChangeNotifierProvider(create: (_) => Yudro()),
+        ChangeNotifierProvider(create: (_) => Percent()),
       ],
       child: MaterialApp(
         title: 'Skripts',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
@@ -61,6 +78,12 @@ class MyApp extends StatelessWidget {
           '/M11': (context) => MEleventhScreen(),
           '/M11': (context) => MEleventhScreen(),
           '/M12': (context) => MTwelfScreen(),
+          '/M13': (context) => MThirteenthfScreen(),
+          '/M14': (context) => MFourteenthScreen(),
+          '/M15': (context) => MFifteenthScreen(),
+          '/M16': (context) => MSixteenthScreen(),
+          '/M17': (context) => MSeventeenthScreen(),
+          // '/M30': (context) => MThirtiethScreen(),
         },
       ),
     );

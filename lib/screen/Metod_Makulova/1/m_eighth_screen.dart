@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../utils/text_style.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MEighthScreen extends StatefulWidget {
   const MEighthScreen({super.key});
@@ -10,8 +13,30 @@ class MEighthScreen extends StatefulWidget {
 }
 
 class _MEighthScreenState extends State<MEighthScreen> {
+  final _instinctIfocus = FocusNode();
+  final _placeIfocus = FocusNode();
+
+  final placeIController = TextEditingController();
+  final instinctIController = TextEditingController();
+
+  @override
+  void dispose() {
+    instinctIController.dispose();
+    _instinctIfocus.dispose();
+
+    placeIController.dispose();
+    _placeIfocus.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final oldR = Provider.of<Regresion>(context).oldR;
+    final situationR = Provider.of<Regresion>(context).situationR;
+    final otherpeople = Provider.of<Regresion>(context).otherpeople;
+    final placeR = Provider.of<Regresion>(context).placeR;
+    final instinct = Provider.of<Instinct>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -25,13 +50,16 @@ class _MEighthScreenState extends State<MEighthScreen> {
           child: Column(
             children: [
               RichText(
-                text: TextSpan(style: TextStyleG.h3baseTextStyle, children: <
-                    TextSpan>[
-                  new TextSpan(text: '1. ', style: TextStyleG.h3boldTextStyle),
-                  new TextSpan(
-                      text: 'Становись там собой в пять лет, когда лает собака',
-                      style: TextStyleG.h3baseTextStyle),
-                ]),
+                text: TextSpan(
+                    style: TextStyleG.h3baseTextStyle,
+                    children: <TextSpan>[
+                      new TextSpan(
+                          text: '1. ', style: TextStyleG.h3boldTextStyle),
+                      new TextSpan(
+                          text:
+                              'Становись там собой в $oldR , когда $situationR',
+                          style: TextStyleG.h3baseTextStyle),
+                    ]),
               ),
               SizedBox(
                 height: 15,
@@ -48,6 +76,16 @@ class _MEighthScreenState extends State<MEighthScreen> {
                     ]),
               ),
               SizedBox(
+                height: 20,
+              ),
+              TextFormFieldWidget(
+                focusNode: _placeIfocus,
+                currentFocus: _placeIfocus,
+                nextFocus: _instinctIfocus,
+                textChild: ('Место в теле'),
+                Controller: placeIController,
+              ),
+              SizedBox(
                 height: 15,
               ),
               RichText(
@@ -57,7 +95,7 @@ class _MEighthScreenState extends State<MEighthScreen> {
                       new TextSpan(
                           text: '3. ', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
-                          text: '3. Входи в это чувство, становись им. ',
+                          text: ' Входи в это чувство, становись им.',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -76,12 +114,27 @@ class _MEighthScreenState extends State<MEighthScreen> {
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormFieldWidget(
+                focusNode: _instinctIfocus,
+                currentFocus: _instinctIfocus,
+                nextFocus: _placeIfocus,
+                textChild: ('Инстинкт'),
+                Controller: instinctIController,
+              ),
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          instinct.changeI(instinctIController.text);
+          instinct.changeP(placeIController.text);
+          print(instinct.placebody.toString());
+          print(instinct.instinct.toString());
+
           Navigator.pushNamed(context, '/M9');
         },
         tooltip: 'Дальше',

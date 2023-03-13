@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/main.dart';
 
-import '../../info_classes/m_info.dart';
-import '../../utils/text_style.dart';
-import '../../widget/text_input.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MFirstScreen extends StatefulWidget {
   MFirstScreen({super.key});
@@ -33,23 +33,13 @@ class _MFirstScreenState extends State<MFirstScreen> {
     super.dispose();
   }
 
-  // Name? name;
-  // Problem? problem;
-  // Situation? situation;
-  // Cangefelling? cangefelling;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    // name = Provider.of<Name>(context);
-    // problem = Provider.of<Problem>(context);
-    // situation = Provider.of<Situation>(context);
-    // cangefelling = Provider.of<Cangefelling>(context);
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final name = Provider.of<Name>(context);
+    final problem = Provider.of<Problem>(context);
+    final situation = Provider.of<Situation>(context);
+    final cangefelling = Provider.of<Cangefelling>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -178,29 +168,18 @@ class _MFirstScreenState extends State<MFirstScreen> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Provider.of<Problem>(context, listen: false).change(problemController.text);
-          print(Provider.of<Problem>(context, listen: false).problem.toString());
-          // Provider.of<Situation>(context, listen: false).change(situationController.text);
-          // print(Provider.of<Situation>(context, listen: false).situation.toString());
-          Provider.of<Cangefelling>(context, listen: false).change(changefellingController.text);
-          print(Provider.of<Cangefelling>(context, listen: false).cangefelling.toString());
+          problem.change(problemController.text);
+          situation.change(situationController.text);
+          cangefelling.change(changefellingController.text);
+          print(problem.problem);
+          print(situation.situation);
+          print(cangefelling.cangefelling);
+
           Navigator.pushNamed(context, '/M2');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),
       ),
-      // floatingActionButton:
-      //     //  Consumer<Cangefelling>(
-      //     //   builder: (context, cangefelling, _) =>
-      //     FloatingActionButton(
-      //   onPressed: () {
-
-      //     Navigator.pushNamed(context, '/M2');
-      //     cangefelling.change(changefellingController.text);
-      //     print(cangefelling.toString());
-      //   },
-      //   tooltip: 'Дальше',
-      //   child: const Icon(Icons.navigate_next),
     );
   }
 }
