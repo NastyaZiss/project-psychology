@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
 import 'package:skripts/info_classes/m_yudro.dart';
 
-import '../info_classes/m_info.dart';
-import '../utils/text_style.dart';
-import '../widget/text_input.dart';
+import '../../../info_classes/m_info.dart';
+import '../../../utils/text_style.dart';
+import '../../../widget/text_input.dart';
 
 class MFifteenthScreen extends StatelessWidget {
   MFifteenthScreen({super.key});

@@ -1,33 +1,37 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:skripts/info_classes/percent.dart';
 
 import '../../../../info_classes/m_inference.dart';
 import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
+import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
 import '../../../../widget/text_input.dart';
 
-class MSixteenthScreen extends StatelessWidget {
-  MSixteenthScreen({super.key});
+class MTwentyThreeScreen extends StatelessWidget {
+  MTwentyThreeScreen({super.key});
 
-  final _percentOnefocus = FocusNode();
+  final _percentTwofocus = FocusNode();
 
-  final percentOneController = TextEditingController();
+  final percentTwoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    final inferenceY = Provider.of<InferenceY>(context);
-    final instinctY = Provider.of<Yudro>(context).instinctY;
-    final placebodyY = Provider.of<Yudro>(context).placebodyY;
-    final situationY = Provider.of<Yudro>(context).situationY;
+    // final inference = Provider.of<Inference>(context);
     final data = Provider.of<DTN>(context).data;
     final name = Provider.of<Name>(context).name;
     final percent = Provider.of<Percent>(context);
 
+    final placebodyR = Provider.of<Instinct>(context).placebody;
+    final instinct = Provider.of<Instinct>(context).instinct;
+    final situationR = Provider.of<Regresion>(context).situationR;
+    final oldR = Provider.of<Regresion>(context).oldR;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '16 Работа с инстинктом. Вибрация',
+          'Работа с инстинктом. Вибрация',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -45,7 +49,7 @@ class MSixteenthScreen extends StatelessWidget {
                             text: '1. ', style: TextStyleG.h3boldTextStyle),
                         new TextSpan(
                             text:
-                                '1. Там и тогда, в три года, когда «$situationY», сконцентрируйся на чувстве «$instinctY» «$placebodyY».',
+                                '1. Там и тогда, в $oldR, когда «$situationR», сконцентрируйся на чувстве « $instinct $placebodyR».',
                             style: TextStyleG.h3baseTextStyle),
                       ]),
                 ),
@@ -104,7 +108,7 @@ class MSixteenthScreen extends StatelessWidget {
                             text: '5. ', style: TextStyleG.h3boldTextStyle),
                         new TextSpan(
                             text:
-                                'Если раньше было сто процентов этого «желания $instinctY в $placebodyY», то сколько сейчас остается? ',
+                                'Если раньше было сто процентов этого «желания спрятаться», то сколько сейчас остается? ',
                             style: TextStyleG.h3baseTextStyle),
                       ]),
                 ),
@@ -114,10 +118,10 @@ class MSixteenthScreen extends StatelessWidget {
                 TextFormFieldWidget(
                     textChild: 'проценты',
                     Texthelper: 'например: 10, 20, 30',
-                    nextFocus: _percentOnefocus,
-                    currentFocus: _percentOnefocus,
-                    focusNode: _percentOnefocus,
-                    Controller: percentOneController),
+                    nextFocus: _percentTwofocus,
+                    currentFocus: _percentTwofocus,
+                    focusNode: _percentTwofocus,
+                    Controller: percentTwoController),
               ],
             ),
           ),
@@ -125,12 +129,7 @@ class MSixteenthScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          percent.changePO(percentOneController.text);
-          // data.change(dataController.text);
-
-          // print(name.name.toString());
-          print(percent.percentOne.toString());
-          Navigator.pushNamed(context, '/M17');
+          Navigator.pushNamed(context, '/M24');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

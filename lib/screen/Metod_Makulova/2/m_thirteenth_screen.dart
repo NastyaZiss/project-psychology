@@ -30,7 +30,7 @@ class _MThirteenthfScreenState extends State<MThirteenthfScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ИНСТИНКТ ЯДРО',
+          ' 30 ИНСТИНКТ ЯДРО',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -110,7 +110,7 @@ class _MThirteenthfScreenState extends State<MThirteenthfScreen> {
         onPressed: () {
           // instinct.changeD(decisionController.text);
           // print(instinct.decision.toString());
-          yudro.changePY(placebodyYController.text);
+          yudro.changePBY(placebodyYController.text);
           yudro.changeIY(instinctYController.text);
           print(yudro.instinctY.toString());
           print(yudro.placebodyY.toString());

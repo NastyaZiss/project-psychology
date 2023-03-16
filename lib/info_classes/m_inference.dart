@@ -5,6 +5,7 @@ class InferenceClass extends ChangeNotifier {
   String _aboutWorld = '';
   String _aboutOthers = '';
   String _aboutYoutself = '';
+
   String _decidedBehaves = '';
   String _conclusion = '';
   String _decisiontoAct = '';
@@ -12,6 +13,7 @@ class InferenceClass extends ChangeNotifier {
   String get aboutWorldling => _aboutWorld;
   String get aboutOthers => _aboutOthers;
   String get aboutYoutself => _aboutYoutself;
+
   String get decidedBehaves => _decidedBehaves;
   String get conclusion => _conclusion;
   String get decisiontoAct => _decisiontoAct;
@@ -27,12 +29,12 @@ class InferenceClass extends ChangeNotifier {
   }
 
   void changeAYSF(String value) {
-    _aboutOthers = value;
+    _aboutYoutself = value;
     notifyListeners();
   }
 
-  void changeB(String value) {
-    _aboutOthers = value;
+  void changeDB(String value) {
+    _decidedBehaves = value;
     notifyListeners();
   }
 
@@ -66,7 +68,7 @@ class InferenceClass extends ChangeNotifier {
     notifyListeners();
   }
 
-  set _boutYoutself(String value) {
+  set aboutYoutself(String value) {
     _aboutYoutself = value;
     notifyListeners();
   }

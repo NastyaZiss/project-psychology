@@ -40,7 +40,7 @@ class _MEighthScreenState extends State<MEighthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ИНСТИНКТ',
+          '8 ИНСТИНКТ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),

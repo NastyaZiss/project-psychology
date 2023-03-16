@@ -1,30 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
-import 'package:readmore/readmore.dart';
-
 import '../../../../widget/text_input.dart';
+import '../../2/vibration_yudro/m_seventeenth_screen.dart';
 
-class MSeventeenthScreen extends StatelessWidget {
-  MSeventeenthScreen({super.key});
+class MTwentyFourthScreen extends StatelessWidget {
+  MTwentyFourthScreen({super.key});
+  final _percentTwofocus = FocusNode();
 
-  final _percentOnefocus = FocusNode();
-
-  final percentOneController = TextEditingController();
+  final percentTwoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final situationY = Provider.of<Yudro>(context).situationY;
-    final instinctY = Provider.of<Yudro>(context).instinctY;
     final percent = Provider.of<Percent>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '17 ОБРАТНЫЙ ПРОЦЕСС',
+          'ОБРАТНЫЙ ПРОЦЕСС',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -79,13 +75,19 @@ class MSeventeenthScreen extends StatelessWidget {
                   mainText: 'ИСЧЕЗНУТЬ',
                   leadText:
                       'Становись этим чувством « исчезнуть» и понимая,  что ты не исчез, ты жив и достоин жизни – начинай двигаться и проявляться, выражая всё , что не выразил.'),
+              SizedBox(
+                height: 20,
+              ),
               TextFormFieldWidget(
                   textChild: 'проценты',
                   Texthelper: 'например: 10, 20, 30',
-                  nextFocus: _percentOnefocus,
-                  currentFocus: _percentOnefocus,
-                  focusNode: _percentOnefocus,
-                  Controller: percentOneController),
+                  nextFocus: _percentTwofocus,
+                  currentFocus: _percentTwofocus,
+                  focusNode: _percentTwofocus,
+                  Controller: percentTwoController),
+              SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 height: 100,
               ),
@@ -95,44 +97,12 @@ class MSeventeenthScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // percent.changePO(percentOneController.text);
-          // // data.change(dataController.text);
-          percent.changePO(percentOneController.text);
-          // data.change(dataController.text);
-
-          // print(name.name.toString());
-          print(percent.percentOne.toString());
-          // // print(name.name.toString());
-          // print(percent.percentOne.toString());
-          Navigator.pushNamed(context, '/M18');
+          percent.changepPT(percentTwoController.text);
+          Navigator.pushNamed(context, '/M25');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),
       ),
-    );
-  }
-}
-
-class ReadMore extends StatelessWidget {
-  ReadMore({super.key, required this.mainText, required this.leadText});
-  final String mainText;
-  final String leadText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(mainText, style: TextStyleG.h3boldTextStyle),
-        ReadMoreText(
-          leadText,
-          trimLines: 2,
-          colorClickableText: Colors.pink,
-          trimMode: TrimMode.Line,
-          trimCollapsedText: 'Далее...',
-          trimExpandedText: ' ',
-          moreStyle: TextStyleG.h3baseakboldTextStyle,
-        ),
-      ],
     );
   }
 }

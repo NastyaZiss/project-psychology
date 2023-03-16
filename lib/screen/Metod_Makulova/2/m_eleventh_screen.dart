@@ -39,7 +39,7 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'РЕГРЕССИЯ_К_ЯДРУ',
+          '11 РЕГРЕССИЯ_К_ЯДРУ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -169,7 +169,7 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                   onPressed: () {
                     yudro.changeSY(situationYudroController.text);
                     print(yudro.situationY.toString());
-                    Navigator.pushNamed(context, '/M30');
+                    Navigator.pushNamed(context, '/M100');
                   },
                   child: Text(
                       'Если не нашли ядро, прорабатывем психотравму(ядро). Тут тогда ситуация клиента будет пустая')),

@@ -21,7 +21,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
   final _aboutYoutselffocus = FocusNode();
   final _decisiontoActfocus = FocusNode();
 
-  final aboutWorldfController = TextEditingController();
+  final aboutWorldController = TextEditingController();
   final conclusionController = TextEditingController();
   final aboutOthersController = TextEditingController();
   final decidedBehaveController = TextEditingController();
@@ -40,7 +40,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
     aboutYoutselfController.dispose();
     decidedBehaveController.dispose();
     aboutOthersController.dispose();
-    aboutWorldfController.dispose();
+    aboutWorldController.dispose();
     conclusionController.dispose();
     decisiontoActController.dispose();
     super.dispose();
@@ -55,7 +55,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ВЫВОД',
+          '10 ВЫВОД',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -75,7 +75,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
                   focusNode: _aboutYoutselffocus,
                   currentFocus: _aboutYoutselffocus,
                   nextFocus: _aboutOthersfocus,
-                  Controller: aboutWorldfController),
+                  Controller: aboutYoutselfController),
               SizedBox(
                 height: 10,
               ),
@@ -106,7 +106,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
                   currentFocus: _aboutWorldfocus,
                   focusNode: _aboutWorldfocus,
                   nextFocus: _decidedBehavesfocus,
-                  Controller: aboutYoutselfController),
+                  Controller: aboutWorldController),
               SizedBox(
                 height: 30,
               ),
@@ -155,7 +155,7 @@ class _MTenthScreenState extends State<MTenthScreen> {
                   textChild: 'Как решил себя вести',
                   focusNode: _decidedBehavesfocus,
                   currentFocus: _decidedBehavesfocus,
-                  nextFocus: _decisiontoActfocus,
+                  nextFocus: _conclusionfocus,
                   Controller: decidedBehaveController),
               SizedBox(
                 height: 20,
@@ -253,10 +253,10 @@ class _MTenthScreenState extends State<MTenthScreen> {
               ),
               TextFormFieldWidget(
                   textChild: 'Решил...',
-                  nextFocus: _decidedBehavesfocus,
-                  currentFocus: _decisiontoActfocus,
-                  focusNode: _decisiontoActfocus,
-                  Controller: decisiontoActController),
+                  nextFocus: _conclusionfocus,
+                  currentFocus: _conclusionfocus,
+                  focusNode: _conclusionfocus,
+                  Controller: conclusionController),
               SizedBox(
                 height: 30,
               ),
@@ -304,19 +304,22 @@ class _MTenthScreenState extends State<MTenthScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          inference.changeAO(aboutOthersController.text);
-
-          inference.changeAW(aboutWorldfController.text);
+          print('ВЫВОД');
           inference.changeAYSF(aboutYoutselfController.text);
-          inference.changeDA(decisiontoActController.text);
+          inference.changeAO(aboutOthersController.text);
+          inference.changeAW(aboutWorldController.text);
           inference.changeC(conclusionController.text);
+          inference.changeDB(decidedBehaveController.text);
 
+          print(inference.aboutYoutself.toString()); //
           print(inference.aboutOthers.toString());
-          print(inference.aboutYoutself.toString());
           print(inference.aboutWorldling.toString());
+
+          print(inference.decidedBehaves.toString()); //
+
           print(inference.conclusion.toString());
-          print(inference.decidedBehaves.toString());
-          print(inference.decisiontoAct.toString());
+
+          print('ВЫВОД');
           Navigator.pushNamed(context, '/M11');
         },
         tooltip: 'Дальше',

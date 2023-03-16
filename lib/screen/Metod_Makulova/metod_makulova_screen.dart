@@ -137,9 +137,9 @@ class _MetodMakulovaScreenState extends State<MetodMakulovaScreen> {
                   onPressed: () {
                     // yudro.changeSY(situationYudroController.text);
                     // print(yudro.situationY.toString());
-                    Navigator.pushNamed(context, '/M17');
+                    Navigator.pushNamed(context, '/M31');
                   },
-                  child: Text('17')),
+                  child: Text('20')),
             ],
           ),
         ),

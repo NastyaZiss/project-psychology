@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:skripts/info_classes/m_info.dart';
-import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
+import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
+import '../../Metod_Makulova/3/m_twelfteenth_screen.dart';
 
-class MFourthScreen extends StatefulWidget {
-  const MFourthScreen({super.key});
-
-  @override
-  State<MFourthScreen> createState() => _MFourthScreenState();
-}
-
-class _MFourthScreenState extends State<MFourthScreen> {
+class PFourthScreen extends StatelessWidget {
+  PFourthScreen({super.key});
   final _placefocus = FocusNode();
   final _aboutnegativfocus = FocusNode();
   final _placeTwofocus = FocusNode();
@@ -21,17 +15,6 @@ class _MFourthScreenState extends State<MFourthScreen> {
   final placeController = TextEditingController();
   final aboutnegativController = TextEditingController();
   final placeTwoController = TextEditingController();
-
-  @override
-  void dispose() {
-    placeController.dispose();
-    aboutnegativController.dispose();
-    placeTwoController.dispose();
-    _placeTwofocus.dispose();
-    _aboutnegativfocus.dispose();
-    _placefocus.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,11 +71,8 @@ class _MFourthScreenState extends State<MFourthScreen> {
               ),
               TextNum(
                   mainText:
-                      '	Где это чувство? Там же в груди или сместилось? Например, сместилось в живот. ',
+                      'Где у вас в теле возникает дискомфортное чувство? В груди, в животе, в горле?',
                   numText: '5.	'),
-              SizedBox(
-                height: 15,
-              ),
               TextFormFieldWidget(
                 focusNode: _placefocus,
                 currentFocus: _placefocus,
@@ -100,6 +80,9 @@ class _MFourthScreenState extends State<MFourthScreen> {
                 textChild: ('Место'),
                 Controller: placeController,
               ),
+              SizedBox(
+                height: 130,
+              )
             ],
           ),
         ),
@@ -111,7 +94,7 @@ class _MFourthScreenState extends State<MFourthScreen> {
 
           placeandaboutnegativ.changeAN(aboutnegativController.text);
           print(placeandaboutnegativ.aboutnegativ.toString());
-          Navigator.pushNamed(context, '/M5');
+          Navigator.pushNamed(context, '/P5');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),
