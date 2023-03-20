@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/info_classes/m_inference.dart';
+import 'package:skripts/info_classes/p_belief.dart';
+import 'package:skripts/info_classes/p_belief.dart';
 
 import '../../../info_classes/m_info.dart';
+import '../../../info_classes/p_belief.dart';
+import '../../../info_classes/p_belief.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 import '../../Metod_Makulova/3/m_twelfteenth_screen.dart';
@@ -10,20 +15,22 @@ class PFourthScreen extends StatelessWidget {
   PFourthScreen({super.key});
   final _placefocus = FocusNode();
   final _aboutnegativfocus = FocusNode();
-  final _placeTwofocus = FocusNode();
+  final _situationfocus = FocusNode();
 
   final placeController = TextEditingController();
   final aboutnegativController = TextEditingController();
-  final placeTwoController = TextEditingController();
+  final situationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final placeandaboutnegativ = Provider.of<Diagnostic>(context);
+    final inference = Provider.of<InferenceY>(context);
+    final belief = Provider.of<Belief>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '1-ДИАГНОСТИКА',
+          '4 ВЫЯВЛЕНИЕ НЕГАТИВНОГО УБЕЖДЕНИЯ ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -35,50 +42,45 @@ class PFourthScreen extends StatelessWidget {
             children: [
               TextNum(
                   mainText:
-                      'Закрой глаза. Мысленно окажитесь в этой ситуации ? ',
+                      'Сделайте приятный глубокий вдох и на выдохе закройте глаза. Не открывайте их пока я вас не попрошу. Окажитесь в последней ситуации по поводу которой возникает переживание. Например: «Знакомый не возвращает деньги»',
                   numText: '1.	'),
+              TextFormFieldWidget(
+                focusNode: _situationfocus,
+                nextFocus: _situationfocus,
+                currentFocus: _aboutnegativfocus,
+                textChild: ('Место'),
+                Controller: situationController,
+              ),
               TextNum(
-                  mainText:
-                      'Где у вас в теле возникает дискомфортное чувство? В груди, в животе, в горле? ',
+                  mainText: 'Где в теле в этот момент дискомфорт? ',
                   numText: '2.	'),
               TextFormFieldWidget(
-                focusNode: _placeTwofocus,
+                focusNode: _placefocus,
                 nextFocus: _aboutnegativfocus,
-                currentFocus: _placeTwofocus,
+                currentFocus: _placefocus,
                 textChild: ('Место'),
-                Controller: placeTwoController,
+                Controller: placeController,
               ),
               SizedBox(
                 height: 20,
               ),
               TextNum(
                   mainText:
-                      'Спросите себя: что конкретно могло бы произойти, чтобы это чувство усилилось? Что бы вам могли сказать или сделать в этой ситуации?',
-                  numText: '3.	'),
-              TextNum(
-                  mainText:
-                      'Далее, представьте, что это произошло, скажите, каким вы себя почувствуете, если с вами это произойдет.',
+                      'Понимая, что вы переживаете не столько по поводу самой ситуации, сколько из-за того что она значит лично для вас, давайте выясним какая негативная мысль/убеждение в этой ситуации у вас возникает? ',
                   numText: '4.	'),
-              TextFormFieldWidget(
-                focusNode: _aboutnegativfocus,
-                nextFocus: _placefocus,
-                currentFocus: _aboutnegativfocus,
-                textChild: ('Негативное самоопределение'),
-                Controller: aboutnegativController,
-              ),
               SizedBox(
                 height: 15,
               ),
               TextNum(
                   mainText:
-                      'Где у вас в теле возникает дискомфортное чувство? В груди, в животе, в горле?',
+                      'Мы склонны разделять убеждения на три группы: «о нас», «о других» и «о мире». То есть со мной что-то не так, с другим человеком или с миром в целом.  В данном конкретном случае, что для вас значит эта ситуация?',
                   numText: '5.	'),
               TextFormFieldWidget(
-                focusNode: _placefocus,
-                currentFocus: _placefocus,
+                focusNode: _aboutnegativfocus,
                 nextFocus: _aboutnegativfocus,
-                textChild: ('Место'),
-                Controller: placeController,
+                currentFocus: _aboutnegativfocus,
+                textChild: ('Негативное убеждение '),
+                Controller: aboutnegativController,
               ),
               SizedBox(
                 height: 130,
@@ -89,11 +91,17 @@ class PFourthScreen extends StatelessWidget {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          placeandaboutnegativ.changeP(placeController.text);
-          print(placeandaboutnegativ.placebody.toString());
+          String placeandbelief =
+              placeController.text + ' ' + aboutnegativController.text;
 
           placeandaboutnegativ.changeAN(aboutnegativController.text);
+          placeandaboutnegativ.changeP(placeController.text);
+          print('1');
+          print(placeandaboutnegativ.placebody.toString());
           print(placeandaboutnegativ.aboutnegativ.toString());
+
+          belief.innerList.add(placeandbelief);
+          print(belief.innerList.reversed.toSet().toList().toString());
           Navigator.pushNamed(context, '/P5');
         },
         tooltip: 'Дальше',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
 import 'package:skripts/info_classes/m_yudro.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -33,7 +34,7 @@ class MFifteenthScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ВЫВОД ЯдРО 15',
+          '15 ВЫВОД ЯДРО',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -260,16 +261,9 @@ class MFifteenthScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  RichText(
-                    text: TextSpan(
-                        style: TextStyleG.h3baseTextStyle,
-                        children: <TextSpan>[
-                          new TextSpan(
-                              text: '4. ', style: TextStyleG.h3boldTextStyle),
-                          new TextSpan(
-                              text: 'Хотел бы ты их изменить?',
-                              style: TextStyleG.h3baseTextStyle),
-                        ]),
+                  TextNum(
+                    mainText: 'Хотел бы ты их изменить?',
+                    numText: '4. ',
                   ),
                 ],
               ),

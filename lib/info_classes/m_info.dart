@@ -211,5 +211,3 @@ class Instinct extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-

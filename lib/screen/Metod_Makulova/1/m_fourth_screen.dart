@@ -98,7 +98,7 @@ class _MFourthScreenState extends State<MFourthScreen> {
                 currentFocus: _placefocus,
                 nextFocus: _aboutnegativfocus,
                 textChild: ('Место'),
-                Controller: placeController,
+                Controller: placeTwoController,
               ),
             ],
           ),
@@ -106,11 +106,12 @@ class _MFourthScreenState extends State<MFourthScreen> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          placeandaboutnegativ.changeP(placeController.text);
+          placeandaboutnegativ.changeP(placeTwoController.text);
           print(placeandaboutnegativ.placebody.toString());
 
           placeandaboutnegativ.changeAN(aboutnegativController.text);
           print(placeandaboutnegativ.aboutnegativ.toString());
+
           Navigator.pushNamed(context, '/M5');
         },
         tooltip: 'Дальше',

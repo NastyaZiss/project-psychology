@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 class Percent extends ChangeNotifier {
-  String _percentOne = '';
-  String _percentTwo = '';
+  String _percentOne = '100';
+  String _percentTwo = '100';
 
   String get percentOne => _percentOne;
   String get percentTwo => _percentTwo;

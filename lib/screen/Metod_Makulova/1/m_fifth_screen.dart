@@ -21,7 +21,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '2-ТЕКСТ ИНДУКЦИЯ',
+          '5 2-ТЕКСТ ИНДУКЦИЯ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -105,7 +105,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '3.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Обрати внимание на чувство «$aboutnegativ $placebody», перестань ему сопротивляться, ведь ты много раз боролся с ним и это ни к чему не привело. Потому что это чувство часть тебя. Ты боролся с самим собой и значит никак не мог выиграть. Сдайся этому чувству, позволь ему взять верх над тобой. ',
+                              'Обрати внимание на чувство «$aboutnegativ $placebody», перестань ему сопротивляться, ведь ты много раз боролся с ним и это ни к чему не привело. Потому что это чувство часть тебя. Ты боролся с самим собой и значит никак не мог выиграть. Сдайся этому чувству, позволь ему взять верх над тобой.',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -168,7 +168,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
                           text: '5.	', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              'Позволь мыслям о «$problem» перетекать в чувство «$aboutnegativ $placebody» и далее перетекать в реакцию тела. ',
+                              'Позволь мыслям о «$problem» перетекать в чувство «$aboutnegativ $placebody» и далее перетекать в реакцию тела.',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),

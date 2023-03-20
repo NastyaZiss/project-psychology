@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/percent.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../../info_classes/m_inference.dart';
 import '../../../../info_classes/m_info.dart';
@@ -104,13 +105,14 @@ class MSixteenthScreen extends StatelessWidget {
                             text: '5. ', style: TextStyleG.h3boldTextStyle),
                         new TextSpan(
                             text:
-                                'Если раньше было сто процентов этого «желания $instinctY в $placebodyY», то сколько сейчас остается? ',
+                                'Если раньше было сто процентов этого «желания $instinctY $placebodyY», то сколько сейчас остается? ',
                             style: TextStyleG.h3baseTextStyle),
                       ]),
                 ),
                 SizedBox(
                   height: 20,
                 ),
+                
                 TextFormFieldWidget(
                     textChild: 'проценты',
                     Texthelper: 'например: 10, 20, 30',

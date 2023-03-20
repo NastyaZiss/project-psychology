@@ -25,7 +25,7 @@ class MNinteenthScreen extends StatelessWidget {
     final purpose = Provider.of<Cangefelling>(context).purpose;
     final percent = Provider.of<Percent>(context).percentOne;
     final name = Provider.of<Name>(context).name;
-    final otherpeople = Provider.of<Regresion>(context).otherpeople;
+    final otherpeopleY = Provider.of<Yudro>(context).otherpeopleY;
     final problem = Provider.of<Problem>(context).problem;
     return Scaffold(
       appBar: AppBar(
@@ -44,12 +44,12 @@ class MNinteenthScreen extends StatelessWidget {
                 akText:
                     'Когда «$situationY», я чувствую, что... (Клиент отвечает)',
                 mainText:
-                    'Входи в это чувство, предоставь ему голос. Высказывай все, что не высказал, выражай все, что не выразил. ',
+                    'Входи в эти $percent процентов этого чувства, предоставь ему голос. Высказывай все, что не высказал, выражай все, что не выразил. ',
               ),
               BaseText(
                 number: '2. ',
                 mainText:
-                    'Становись «этим человеком» и, глядя на «$name», отвечай. Хотела бы его «обидеть, унизить оскорбить», чтобы он начал «бояться, избегать и не выражать себя»? Или нет, ты просто «воспитывала его так, как тебе казалось правильным»?',
+                    'Становись «$otherpeopleY» и, глядя на «$name», отвечай. Хотела бы его «обидеть, унизить оскорбить», чтобы он начал «бояться, избегать и не выражать себя»? Или нет, ты просто «воспитывала его так, как тебе казалось правильным»?',
                 akText: '(Например, Мама отвечает, что не хотела)',
               ),
               BaseText(
@@ -57,13 +57,13 @@ class MNinteenthScreen extends StatelessWidget {
                 akText:
                     '(Если да - повторить работу с прощением с начала) Например, нет, ничего не мешает.',
                 mainText:
-                    'Становись «$name». Глядя на «$otherpeople подставить др людей в ядро», понимая, что она не хотела тебя «обидеть, унизить, оскорбить», есть что-то, что мешает ее простить? ',
+                    'Становись «$name». Глядя на «$otherpeopleY», понимая, что она не хотела тебя «обидеть, унизить, оскорбить», есть что-то, что мешает ее простить? ',
               ),
               BaseText(
                 number: '4. ',
                 akText: '(Клиент говорит: простил)',
                 mainText:
-                    'Тогда глядя на «$otherpeople» про себя говоришь: «$otherpeople подставить др людей в ядро», я тебя прощаю за то, что ты била меня и за что-то еще, что там она тебе делала». Как простишь маму, скажешь мне об этом. ',
+                    'Тогда глядя на «$otherpeopleY» про себя говоришь: «$otherpeopleY», я тебя прощаю за то, что ты била меня и за что-то еще, что там она тебе делала». Как простишь $otherpeopleY, скажешь мне об этом. ',
               ),
               RichText(
                 text: TextSpan(
@@ -81,7 +81,7 @@ class MNinteenthScreen extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                '« $decisionY;  $decidedBehavesY; $decisiontoActY; $problem».',
+                '« $decisionY; $decidedBehavesY; $decisiontoActY; $problem».',
                 style: TextStyleG.h3baseTextStyle,
               ),
               SizedBox(

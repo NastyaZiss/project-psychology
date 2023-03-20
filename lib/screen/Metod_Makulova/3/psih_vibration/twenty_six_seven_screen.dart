@@ -2,25 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
 
-import '../../../info_classes/m_info.dart';
-import '../../../info_classes/m_yudro.dart';
-import '../../../utils/text_style.dart';
+import '../../../../info_classes/m_info.dart';
+import '../../../../info_classes/m_yudro.dart';
+import '../../../../utils/text_style.dart';
+import '../m_twelfteenth_screen.dart';
 
-class MTwelfteenthScreen extends StatelessWidget {
-  const MTwelfteenthScreen({super.key});
+class MTwentySevenandSixScreen extends StatelessWidget {
+  MTwentySevenandSixScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final problem = Provider.of<Problem>(context).problem;
     final purpose = Provider.of<Cangefelling>(context).cangefelling;
-    final instinctY = Provider.of<Yudro>(context).instinctY;
-    final decisionY = Provider.of<Yudro>(context).decisionY;
-    final decidedBehavesY = Provider.of<InferenceY>(context).decidedBehavesY;
+    final instinct = Provider.of<Instinct>(context).instinct;
+    final decision = Provider.of<Instinct>(context).decision;
+    final decidedBehaves = Provider.of<InferenceClass>(context).decidedBehaves;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '20 РАБОТА С ВЫВОДОМ',
+          '26.5 РАБОТА С ВЫВОДОМ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
@@ -29,24 +30,21 @@ class MTwelfteenthScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(17.0),
             child: Column(children: [
-              // Text(
-              //   style: TextStyleG.h3baseTextStyle,
-              // ),
               TextNum(
                   mainText:
                       'Становись там маленьким собой, которого ты простил. Глядя на все это по-новому, какие там новые выводы можно сделать, новые решения принять, чтобы потом в тех ситуациях, где «$problem» (проблема Клиента), начать реагировать по-новому «$purpose» (Цель Клиента).',
                   numText: '1. '),
               TextNum(
                   mainText:
-                      'Какой вывод вместо «$instinctY»? Как себя физически чувствовать в подобных ситуациях (Например, спокойно)',
+                      'Какой вывод вместо «$instinct»? Как себя физически чувствовать в подобных ситуациях (Например, спокойно)',
                   numText: '2. '),
               TextNum(
                   mainText:
-                      'Какой вывод вместо «$decisionY»? Как себя эмоционально чувствовать в подобных ситуациях (Например, уверенно)',
+                      'Какой вывод вместо «$decision»? Как себя эмоционально чувствовать в подобных ситуациях (Например, уверенно)',
                   numText: '3. '),
               TextNum(
                   mainText:
-                      'Какой вывод вместо «$decidedBehavesY»? Как вести себя в подобных ситуациях (Например, разбираться с проблемами, если возникнут)',
+                      'Какой вывод вместо «$decidedBehaves»? Как вести себя в подобных ситуациях (Например, разбираться с проблемами, если возникнут)',
                   numText: '4. '),
               TextNum(
                   mainText:
@@ -69,35 +67,11 @@ class MTwelfteenthScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/M21');
+          Navigator.pushNamed(context, '/M27');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),
       ),
-    );
-  }
-}
-
-class TextNum extends StatelessWidget {
-  const TextNum({super.key, required this.mainText, required this.numText});
-  final String mainText;
-  final String numText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        RichText(
-          text:
-              TextSpan(style: TextStyleG.h3baseTextStyle, children: <TextSpan>[
-            new TextSpan(text: numText, style: TextStyleG.h3boldTextStyle),
-            new TextSpan(text: mainText, style: TextStyleG.h3baseTextStyle),
-          ]),
-        ),
-        SizedBox(
-          height: 20,
-        )
-      ],
     );
   }
 }

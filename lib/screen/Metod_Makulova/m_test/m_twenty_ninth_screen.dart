@@ -32,7 +32,7 @@ class MTwentyNinthScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          '29 ПОЗИТИВАЦИЯ_ПСИХОТРАВМЫ',
+          '29 ПОЗИТИВАЦИЯ ПСИХОТРАВМЫ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:skripts/utils/text_style.dart';
+
+import '../info_classes/p_belief.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final belief = Provider.of<Belief>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -32,12 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, '/MetodMakulova');
                   },
-                  // style: ButtonStyle(
-                  //   minimumSize: MaterialStateProperty.all(const Size(10, 50)),
-                  //   foregroundColor: getColor(Colors.red, Colors.pink),
-                  //   backgroundColor:
-                  //       getColor(Colors.teal, Color.fromARGB(255, 76, 175, 165)),
-                  // ),
                   child: Text('Метод Макулова')),
             ),
             SizedBox(
@@ -48,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: MediaQuery.of(context).size.height * 0.09,
                 child: ElevatedButton(
                     onPressed: () {
+                      belief.clear();
                       Navigator.pushNamed(context, '/PiramidaNevroza');
                     },
                     child: Text('Пирамида невроза'))),

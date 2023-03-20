@@ -29,7 +29,7 @@ class _MEndScreenState extends State<MEndScreen> {
                 child: Center(
                   child: Text(
                     'КОНСУЛЬТАЦИЯ ОКОНЧЕНА!',
-                    style: TextStyleG.h2blackboldTextStyle,
+                    style: TextStyleG.h2TextStyle,
                   ),
                 ))));
   }

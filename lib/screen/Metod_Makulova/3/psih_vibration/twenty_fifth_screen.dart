@@ -8,9 +8,13 @@ import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
+import '../../../../widget/text_input.dart';
 
 class MTwentyFifthScreen extends StatelessWidget {
-  const MTwentyFifthScreen({super.key});
+  MTwentyFifthScreen({super.key});
+
+  final _percentOnefocus = FocusNode();
+  final percentOneController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +24,11 @@ class MTwentyFifthScreen extends StatelessWidget {
     final placebody = Provider.of<Instinct>(context).placebody;
     final instinct = Provider.of<Instinct>(context).instinct;
     // final decidedBehaves = Provider.of<Instinct>(context).decision;
-    final purpose = Provider.of<Cangefelling>(context).purpose;
-    final percent = Provider.of<Percent>(context).percentTwo;
+    final cangefelling = Provider.of<Cangefelling>(context).cangefelling;
+    final percentO = Provider.of<Percent>(context).percentOne;
     final decidedBehaves = Provider.of<InferenceClass>(context).decidedBehaves;
+    final percent = Provider.of<Percent>(context);
+    final percentT = Provider.of<Percent>(context).percentTwo;
 
     return Scaffold(
       appBar: AppBar(
@@ -37,7 +43,7 @@ class MTwentyFifthScreen extends StatelessWidget {
             padding: const EdgeInsets.all(17.0),
             child: Column(children: [
               Text(
-                'Входи в то, что осталось от этого чувства «$placebody», становись им. Положи руку на это место в теле. И обращаясь внутрь себя, вглубь себя, я вслух, ты про себя: ',
+                'Входи в то, что осталось от этого чувства «$placebody» в эти $percentT, становись им. Положи руку на это место в теле. И обращаясь внутрь себя, вглубь себя, я вслух, ты про себя: ',
                 style: TextStyleG.h3baseTextStyle,
               ),
               SizedBox(
@@ -75,7 +81,7 @@ class MTwentyFifthScreen extends StatelessWidget {
                           text: '(В)', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              ' Я разрываю связь между тем, что «$situationR», и тем, что я решил «$decidedBehaves пусто».',
+                              ' Я разрываю связь между тем, что «$situationR», и тем, что я решил «$decidedBehaves».',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -90,22 +96,33 @@ class MTwentyFifthScreen extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                'Теперь я могу «$purpose» и знать, что со мной произошла эта ситуация.',
+                'Теперь я могу «$cangefelling» и знать, что со мной произошла эта ситуация.',
                 style: TextStyleG.h3baseTextStyle,
               ),
               SizedBox(
                 height: 5,
               ),
               Text(
-                'Воспринимаю все произошедшее как опыт, а не как травму. Вдох … выдох, если раньше было «$percent процентов», то сколько сейчас остается?',
+                'Воспринимаю все произошедшее как опыт, а не как травму. Вдох … выдох, если раньше было «$percentO процентов», то сколько сейчас остается?',
                 style: TextStyleG.h3baseTextStyle,
               ),
+              SizedBox(
+                height: 10,
+              ),
+              TextFormFieldWidget(
+                  textChild: 'проценты',
+                  Texthelper: 'например: 10, 20, 30',
+                  nextFocus: _percentOnefocus,
+                  currentFocus: _percentOnefocus,
+                  focusNode: _percentOnefocus,
+                  Controller: percentOneController),
             ]),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          percent.changePO(percentOneController.text);
           Navigator.pushNamed(context, '/M26');
         },
         tooltip: 'Дальше',

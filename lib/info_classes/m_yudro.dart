@@ -7,6 +7,7 @@ class Yudro extends ChangeNotifier {
   String _placeY = '';
   String _instinctY = '';
   String _decisionY = '';
+  String _otherpeopleY = '';
 
   String get situationY => _situationY;
   String get oldY => _oldY;
@@ -14,6 +15,7 @@ class Yudro extends ChangeNotifier {
   String get placebodyY => _placebodyY;
   String get instinctY => _instinctY;
   String get decisionY => _decisionY;
+  String get otherpeopleY => _otherpeopleY;
 
   void changeSY(String value) {
     _situationY = value;
@@ -45,6 +47,11 @@ class Yudro extends ChangeNotifier {
     notifyListeners();
   }
 
+  void changeOPRY(String value) {
+    _otherpeopleY = value;
+    notifyListeners();
+  }
+
   set situationY(String value) {
     _situationY = value;
     notifyListeners();
@@ -72,6 +79,11 @@ class Yudro extends ChangeNotifier {
 
   set decisionY(String value) {
     _decisionY = value;
+    notifyListeners();
+  }
+
+  set otherpeople(String value) {
+    _otherpeopleY = value;
     notifyListeners();
   }
 }

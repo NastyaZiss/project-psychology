@@ -169,7 +169,7 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                   onPressed: () {
                     yudro.changeSY(situationYudroController.text);
                     print(yudro.situationY.toString());
-                    Navigator.pushNamed(context, '/M100');
+                    Navigator.pushNamed(context, '/M23');
                   },
                   child: Text(
                       'Если не нашли ядро, прорабатывем психотравму(ядро). Тут тогда ситуация клиента будет пустая')),

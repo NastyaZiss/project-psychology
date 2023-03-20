@@ -23,6 +23,7 @@ import 'package:skripts/screen/Metod_Makulova/1/m_trid_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/psih_vibration/twenty_fifth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/psih_vibration/twenty_six_screen.dart';
+import 'package:skripts/screen/Metod_Makulova/3/psih_vibration/twenty_six_seven_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/twenty_first_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/psih_vibration/twenty_fourth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/twenty_second_screen.dart';
@@ -45,6 +46,7 @@ import 'package:skripts/screen/Piramida_Nevroza/1/p_seven_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_sixth_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_tenth_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_trid_screen.dart';
+import 'package:skripts/screen/Piramida_Nevroza/2/P_end_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/2/p_eleventh_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/piramida_nevroza.dart';
 import 'package:skripts/screen/home_screen.dart';
@@ -52,6 +54,7 @@ import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/2/m_fifteenth_screen.dart';
 
 import 'info_classes/m_yudro.dart';
+import 'info_classes/p_belief.dart';
 import 'screen/Piramida_Nevroza/1/p_fourth_screen.dart';
 
 void main() {
@@ -78,6 +81,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => InferenceY()),
         ChangeNotifierProvider(create: (_) => Yudro()),
         ChangeNotifierProvider(create: (_) => Percent()),
+        ChangeNotifierProvider(create: (_) => Belief()),
       ],
       child: MaterialApp(
         title: 'Skripts',
@@ -91,7 +95,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HomeScreen(),
           '/MetodMakulova': (context) => MetodMakulovaScreen(),
-          '/PiramidaNevroza': (context) =>  PiramidaNevrozaScreen(),
+          '/PiramidaNevroza': (context) => PiramidaNevrozaScreen(),
           // '/P1': (context) => const PFirstScreen(),
           '/M1': (context) => MFirstScreen(),
           '/M2': (context) => MSecondScreen(),
@@ -122,6 +126,7 @@ class MyApp extends StatelessWidget {
           '/M24': (context) => MTwentyFourthScreen(),
           '/M25': (context) => MTwentyFifthScreen(),
           '/M26': (context) => MTwentySixthScreen(),
+          '/M26.5': (context) => MTwentySevenandSixScreen(),
           '/M27': (context) => MTwentySeventhScreen(), //прогрессия до наст
           '/M28': (context) => MTwentyEightScreen(),
           '/M29': (context) => MTwentyNinthScreen(),
@@ -145,6 +150,7 @@ class MyApp extends StatelessWidget {
           '/P10': (context) => PTenthScreen(),
 
           '/P11': (context) => PEleventhScreen(),
+          '/P12': (context) => PEndScreen(),
         },
       ),
     );

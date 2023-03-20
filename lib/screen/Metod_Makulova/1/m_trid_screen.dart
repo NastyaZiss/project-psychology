@@ -41,65 +41,67 @@ class _MTridScreenState extends State<MTridScreen> {
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(17.0),
-          child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //     Text(
-            //       'Цель',
-            //       style: TextStyleG.h2TextStyle,
-            //     ),
-            //   ],
-            // ),
-            SizedBox(
-              height: 30,
-            ),
-            Form(
-              child: Column(
-                children: [
-                  RichText(
-                    text: TextSpan(
-                        style: TextStyleG.h3baseTextStyle,
-                        children: <TextSpan>[
-                          new TextSpan(
-                              text: '7. Контекст. ',
-                              style: TextStyleG.h3boldTextStyle),
-                          new TextSpan(
-                              text:
-                                  'Итак, у вас есть $problem, но другие люди могут чувствовать в этих ситуациях себя «спокойно». Значит в какой-то момент вы научились «$problem». И то что мы будем с вами делать, это просто переобучаться. И для этого нам не потребуется ни дополнительное оборудование ни медикаменты. ',
-                              style: TextStyleG.h3baseTextStyle),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  RichText(
-                    text: TextSpan(
-                        style: TextStyleG.h3baseTextStyle,
-                        children: <TextSpan>[
-                          new TextSpan(
-                              text: 'Страхи и мифы. ',
-                              style: TextStyleG.h3boldTextStyle),
-                          new TextSpan(
-                              text:
-                                  'Возможно, у вас есть какие-то вопросы, сомнения или вам что-то не понятно по проведению консультации. И это абсолютно нормально, не стесняйтесь их задать.',
-                              style: TextStyleG.h3baseTextStyle),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    '*Хорошо. Хочу обратить ваше внимание, что во время консультации ваши руки и ноги не скрещены, расслабленно лежат прямо.',
-                    style: TextStyleG.h4akTextStyle,
-                  )
-                ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(17.0),
+            child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Text(
+              //       'Цель',
+              //       style: TextStyleG.h2TextStyle,
+              //     ),
+              //   ],
+              // ),
+              SizedBox(
+                height: 30,
               ),
-            ),
-          ]),
+              Form(
+                child: Column(
+                  children: [
+                    RichText(
+                      text: TextSpan(
+                          style: TextStyleG.h3baseTextStyle,
+                          children: <TextSpan>[
+                            new TextSpan(
+                                text: '7. Контекст. ',
+                                style: TextStyleG.h3boldTextStyle),
+                            new TextSpan(
+                                text:
+                                    'Итак, у вас есть $problem, но другие люди могут чувствовать в этих ситуациях себя «спокойно». Значит в какой-то момент вы научились «$problem». И то что мы будем с вами делать, это просто переобучаться. И для этого нам не потребуется ни дополнительное оборудование ни медикаменты. ',
+                                style: TextStyleG.h3baseTextStyle),
+                          ]),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                          style: TextStyleG.h3baseTextStyle,
+                          children: <TextSpan>[
+                            new TextSpan(
+                                text: 'Страхи и мифы. ',
+                                style: TextStyleG.h3boldTextStyle),
+                            new TextSpan(
+                                text:
+                                    'Возможно, у вас есть какие-то вопросы, сомнения или вам что-то не понятно по проведению консультации. И это абсолютно нормально, не стесняйтесь их задать.',
+                                style: TextStyleG.h3baseTextStyle),
+                          ]),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      '*Хорошо. Хочу обратить ваше внимание, что во время консультации ваши руки и ноги не скрещены, расслабленно лежат прямо.',
+                      style: TextStyleG.h4akTextStyle,
+                    )
+                  ],
+                ),
+              ),
+            ]),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

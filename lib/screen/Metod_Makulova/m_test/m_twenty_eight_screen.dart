@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skripts/info_classes/percent.dart';
 import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
@@ -24,6 +25,8 @@ class MTwentyEightScreen extends StatelessWidget {
     final purpose = Provider.of<Cangefelling>(context).purpose;
     final problem = Provider.of<Problem>(context).problem;
     final situation = Provider.of<Situation>(context).situation;
+    final precent = Provider.of<Percent>(context).percentTwo;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -39,10 +42,10 @@ class MTwentyEightScreen extends StatelessWidget {
               children: [
                 TextNum(
                     mainText:
-                        'Возвращайся в последнюю ситуацию, где ты «$problem». Начинай «$situation», если раньше было «100% этого страха в груди», то сколько сейчас остается? ',
+                        'Возвращайся в последнюю ситуацию, где ты «$problem». Начинай «$situation», если раньше было «$precent % этого страха в груди», то сколько сейчас остается? ',
                     numText: '1. '),
                 TextNum(
-                    mainText: 'Мешает ли эти % тебе в "$situation" ',
+                    mainText: 'Мешает ли эти $precent % тебе в "$situation" ',
                     numText: '2. '),
                 TextNum(
                     mainText:

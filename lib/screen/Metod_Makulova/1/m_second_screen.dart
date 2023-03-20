@@ -40,105 +40,107 @@ class _MSecondScreenState extends State<MSecondScreen> {
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(17.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: [
-            //     Text(
-            //       'Цель',
-            //       style: TextStyleG.h2TextStyle,
-            //     ),
-            //   ],
-            // ),
-            SizedBox(
-              height: 30,
-            ),
-            Form(
-                child: Column(
-              children: [
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '4. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Как вы пытались решить эту проблему до этого? ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '5. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'И все это не сработало, поэтому вы здесь, верно? ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                // RichText(
-                //   text: TextSpan(
-                //       style: TextStyleG.h3baseTextStyle,
-                //       children: <TextSpan>[
-                //         new TextSpan(
-                //             text: '3. ', style: TextStyleG.h3boldTextStyle),
-                //         new TextSpan(
-                //             text:
-                //                 'Как бы вы хотели себя чувствовать в $problem вместо этого?',
-                //             style: TextStyleG.h3baseTextStyle),
-                //       ]),
-                // ),
-                // SizedBox(
-                //   height: 20,
-                // ),
-                // TextFormFieldWidget(
-                //   focusNode: _purposefocus,
-                //   currentFocus: _purposefocus,
-                //   nextFocus: _purposefocus,
-                //   textChild: ('Цель клиента'),
-                //   Controller: purposeController,
-                // ),
-                SizedBox(
-                  height: 10,
-                ),
-              ],
-            )),
-            SizedBox(
-              height: 15,
-            ),
-            RichText(
-              text: TextSpan(
-                  style: TextStyleG.h3baseTextStyle,
-                  children: <TextSpan>[
-                    new TextSpan(
-                        text: '5. ', style: TextStyleG.h3boldTextStyle),
-                    new TextSpan(
-                      text:
-                          ' То, что мы будем с вами делать, будет отличаться от того, что вы делали до этого. Поэтому чтобы достичь результата, вам нужно следовать за мной сразу, полностью, автоматически, не обдумывая. Потому что до этого вы уже обдумывали, анализировали, но это не сработало. Верно? ',
-                    ),
-                  ]),
-            ),
-          ],
-        ),
-      )),
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(17.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Text(
+              //       'Цель',
+              //       style: TextStyleG.h2TextStyle,
+              //     ),
+              //   ],
+              // ),
+              SizedBox(
+                height: 30,
+              ),
+              Form(
+                  child: Column(
+                children: [
+                  RichText(
+                    text: TextSpan(
+                        style: TextStyleG.h3baseTextStyle,
+                        children: <TextSpan>[
+                          new TextSpan(
+                              text: '4. ', style: TextStyleG.h3boldTextStyle),
+                          new TextSpan(
+                              text:
+                                  'Как вы пытались решить эту проблему до этого? ',
+                              style: TextStyleG.h3baseTextStyle),
+                        ]),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                        style: TextStyleG.h3baseTextStyle,
+                        children: <TextSpan>[
+                          new TextSpan(
+                              text: '5. ', style: TextStyleG.h3boldTextStyle),
+                          new TextSpan(
+                              text:
+                                  'И все это не сработало, поэтому вы здесь, верно? ',
+                              style: TextStyleG.h3baseTextStyle),
+                        ]),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  // RichText(
+                  //   text: TextSpan(
+                  //       style: TextStyleG.h3baseTextStyle,
+                  //       children: <TextSpan>[
+                  //         new TextSpan(
+                  //             text: '3. ', style: TextStyleG.h3boldTextStyle),
+                  //         new TextSpan(
+                  //             text:
+                  //                 'Как бы вы хотели себя чувствовать в $problem вместо этого?',
+                  //             style: TextStyleG.h3baseTextStyle),
+                  //       ]),
+                  // ),
+                  // SizedBox(
+                  //   height: 20,
+                  // ),
+                  // TextFormFieldWidget(
+                  //   focusNode: _purposefocus,
+                  //   currentFocus: _purposefocus,
+                  //   nextFocus: _purposefocus,
+                  //   textChild: ('Цель клиента'),
+                  //   Controller: purposeController,
+                  // ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              )),
+              SizedBox(
+                height: 15,
+              ),
+              RichText(
+                text: TextSpan(
+                    style: TextStyleG.h3baseTextStyle,
+                    children: <TextSpan>[
+                      new TextSpan(
+                          text: '5. ', style: TextStyleG.h3boldTextStyle),
+                      new TextSpan(
+                        text:
+                            ' То, что мы будем с вами делать, будет отличаться от того, что вы делали до этого. Поэтому чтобы достичь результата, вам нужно следовать за мной сразу, полностью, автоматически, не обдумывая. Потому что до этого вы уже обдумывали, анализировали, но это не сработало. Верно? ',
+                      ),
+                    ]),
+              ),
+            ],
+          ),
+        )),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // purpose.changePurpose(purposeController.text);

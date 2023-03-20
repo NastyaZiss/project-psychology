@@ -48,7 +48,7 @@ class MTwentySixthScreen extends StatelessWidget {
                 akText:
                     'Когда «$situationR», я чувствую, что... (Клиент отвечает)', //Y
                 mainText:
-                    'Входи в это чувство, предоставь ему голос. Высказывай все, что не высказал, выражай все, что не выразил. ',
+                    'Входи в эти $percent процентов этого чувство, предоставь ему голос. Высказывай все, что не высказал, выражай все, что не выразил. ',
               ),
               BaseText(
                 number: '2. ',
@@ -140,7 +140,7 @@ class MTwentySixthScreen extends StatelessWidget {
 
           // // print(name.name.toString());
           // print(percent.percentOne.toString());
-          Navigator.pushNamed(context, '/M27');
+          Navigator.pushNamed(context, '/M26.5');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

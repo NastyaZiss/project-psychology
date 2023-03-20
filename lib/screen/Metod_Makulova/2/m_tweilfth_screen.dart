@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
@@ -15,15 +16,16 @@ class MTwelfScreen extends StatefulWidget {
 class _MTwelfScreenState extends State<MTwelfScreen> {
   final _situationYfocus = FocusNode();
   final _oldYfocus = FocusNode();
-  // final _sfocus = FocusNode();
+  final _otherpeopleYfocus = FocusNode();
 
-  // final situationYudroController = TextEditingController();
+  final otherpeopleYController = TextEditingController();
   final oldYController = TextEditingController();
   final situationYController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final yudro = Provider.of<Yudro>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,18 +38,10 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
           child: Padding(
             padding: const EdgeInsets.all(17.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '1. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text: 'В каком ты возрасте? ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
+                TextNum(mainText: 'В каком ты возрасте?', numText: '1. '),
+
                 SizedBox(
                   height: 15,
                 ),
@@ -60,22 +54,14 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
                   Controller: oldYController,
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 20,
                 ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '4.	', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Что на тебя воздействует, что возникает это чувство?',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
+                TextNum(
+                    mainText:
+                        'Что на тебя воздействует, что возникает это чувство?',
+                    numText: '4. '),
                 SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 TextFormFieldWidget(
                   focusNode: _situationYfocus,
@@ -83,6 +69,21 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
                   nextFocus: _oldYfocus,
                   textChild: ('Что происходит'),
                   Controller: situationYController,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                TextNum(mainText: 'Один или с кем-то?', numText: '5. '),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                TextFormFieldWidget(
+                  focusNode: _otherpeopleYfocus,
+                  currentFocus: _otherpeopleYfocus,
+                  nextFocus: _otherpeopleYfocus,
+                  textChild: ('Другой человек'),
+                  Controller: otherpeopleYController,
+                  Texthelper: 'в Им.п',
                 ),
               ],
             ),
@@ -95,6 +96,7 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
           // print(instinct.decision.toString());
           yudro.changeOY(oldYController.text);
           yudro.changeSY(situationYController.text);
+          yudro.changeOPRY(otherpeopleYController.text);
           print(yudro.oldY.toString());
           print(yudro.situationY.toString());
           Navigator.pushNamed(context, '/M13');

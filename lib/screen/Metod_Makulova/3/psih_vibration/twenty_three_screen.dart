@@ -129,6 +129,7 @@ class MTwentyThreeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          percent.changePO(percentTwoController.text);
           Navigator.pushNamed(context, '/M24');
         },
         tooltip: 'Дальше',

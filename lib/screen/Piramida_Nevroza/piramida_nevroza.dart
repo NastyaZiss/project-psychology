@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/info_classes/p_belief.dart';
 import 'package:skripts/utils/text_style.dart';
 
 import '../../info_classes/m_info.dart';
@@ -21,6 +22,7 @@ class PiramidaNevrozaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final name = Provider.of<Name>(context);
     final data = Provider.of<DTN>(context);
+    final belief = Provider.of<Belief>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -119,6 +121,7 @@ class PiramidaNevrozaScreen extends StatelessWidget {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          belief.clear();
           name.change(nameController.text);
           data.change(dataController.text);
 

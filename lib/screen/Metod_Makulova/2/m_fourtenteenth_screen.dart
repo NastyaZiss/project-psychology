@@ -11,8 +11,6 @@ class MFourteenthScreen extends StatelessWidget {
   MFourteenthScreen({super.key});
   final _decisionYfocus = FocusNode();
 
-  
-
   final decisionYController = TextEditingController();
 
   @override
@@ -23,56 +21,58 @@ class MFourteenthScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'РЕШЕНИЕ',
+          '14 РЕШЕНИЕ',
           style: TextStyleG.AppBarTextStyle,
         ),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(17.0),
-          child: Column(children: [
-            RichText(
-              text: TextSpan(
-                  style: TextStyleG.h3baseTextStyle,
-                  children: <TextSpan>[
-                    new TextSpan(
-                        text: '1. ', style: TextStyleG.h3boldTextStyle),
-                    new TextSpan(
-                        text:
-                            'Как решил чувствовать себя в подобных ситуациях дальше? ',
-                        style: TextStyleG.h3baseTextStyle),
-                  ]),
-            ),
-            new ListTile(
-              leading: new MyBullet(),
-              title: new Text('Бояться'),
-            ),
-            new ListTile(
-              leading: new MyBullet(),
-              title: new Text('Обижаться, Злиться'),
-            ),
-            new ListTile(
-              leading: new MyBullet(),
-              title: new Text('Винить'),
-            ),
-            new ListTile(
-              leading: new MyBullet(),
-              title: new Text('Стыдиться'),
-            ),
-            new ListTile(
-              leading: new MyBullet(),
-              title: new Text('Быть одиноким, Грустить'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextFormFieldWidget(
-                textChild: 'Решение',
-                nextFocus: _decisionYfocus,
-                currentFocus: _decisionYfocus,
-                focusNode: _decisionYfocus,
-                Controller: decisionYController),
-          ]),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(17.0),
+            child: Column(children: [
+              RichText(
+                text: TextSpan(
+                    style: TextStyleG.h3baseTextStyle,
+                    children: <TextSpan>[
+                      new TextSpan(
+                          text: '1. ', style: TextStyleG.h3boldTextStyle),
+                      new TextSpan(
+                          text:
+                              'Как решил чувствовать себя в подобных ситуациях дальше? ',
+                          style: TextStyleG.h3baseTextStyle),
+                    ]),
+              ),
+              new ListTile(
+                leading: new MyBullet(),
+                title: new Text('Бояться'),
+              ),
+              new ListTile(
+                leading: new MyBullet(),
+                title: new Text('Обижаться, Злиться'),
+              ),
+              new ListTile(
+                leading: new MyBullet(),
+                title: new Text('Винить'),
+              ),
+              new ListTile(
+                leading: new MyBullet(),
+                title: new Text('Стыдиться'),
+              ),
+              new ListTile(
+                leading: new MyBullet(),
+                title: new Text('Быть одиноким, Грустить'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormFieldWidget(
+                  textChild: 'Решение',
+                  nextFocus: _decisionYfocus,
+                  currentFocus: _decisionYfocus,
+                  focusNode: _decisionYfocus,
+                  Controller: decisionYController),
+            ]),
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
