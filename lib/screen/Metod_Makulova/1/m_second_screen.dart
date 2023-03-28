@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../info_classes/m_info.dart';
 import '../../../main.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/text_input.dart';
 
 class MSecondScreen extends StatefulWidget {
@@ -34,11 +35,8 @@ class _MSecondScreenState extends State<MSecondScreen> {
     // final purposep = Provider.of<Cangefelling>(context).purpose;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Ролевая позиция',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'Ролевая позиция',
       ),
       body: SingleChildScrollView(
         child: SafeArea(

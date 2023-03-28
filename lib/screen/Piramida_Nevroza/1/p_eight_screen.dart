@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
 import 'package:skripts/info_classes/percent.dart';
 import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 import 'package:skripts/widget/text_input.dart';
 
 import '../../../info_classes/p_belief.dart';
@@ -22,17 +23,14 @@ class PEightScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final inner = Provider.of<Belief>(context).innerList;
-    final innerS = inner..reversed.toSet().toList();
+    final innerS = inner.reversed.toSet().toList();
     final percentOne = Provider.of<Percent>(context).percentOne;
     final percent = Provider.of<Percent>(context);
     final situation = Provider.of<Situation>(context).situation;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '8 СОЗДАНИЕ ЭФФЕКТИВНЫХ УБЕЖДЕНИЙ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '8 СОЗДАНИЕ ЭФФЕКТИВНЫХ УБЕЖДЕНИЙ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -85,15 +83,15 @@ class PEightScreen extends StatelessWidget {
                   height: 20,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                      minimumSize:
-                          MaterialStateProperty.all(const Size(10, 50)),
-                    ),
-                    onPressed: () {
-                      percent.changePO(percentOneController.text);
-                      Navigator.pushNamed(context, '/P5');
-                    },
-                    child: Text('шаг 2')),
+                  style: ButtonStyle(
+                    minimumSize: MaterialStateProperty.all(const Size(10, 50)),
+                  ),
+                  onPressed: () {
+                    percent.changePO(percentOneController.text);
+                    Navigator.pushNamed(context, '/P5');
+                  },
+                  child: Text('шаг 2'),
+                ),
                 SizedBox(
                   height: 70,
                 ),
@@ -105,7 +103,7 @@ class PEightScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           percent.changePO(percentOneController.text);
-          Navigator.pushNamed(context, '/P10');
+          Navigator.pushNamed(context, '/P9');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

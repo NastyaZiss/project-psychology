@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/text_input.dart';
 
 class PFirstScreen extends StatelessWidget {
@@ -36,12 +37,14 @@ class PFirstScreen extends StatelessWidget {
     final situation = Provider.of<Situation>(context);
     final cangefelling = Provider.of<Cangefelling>(context);
 
+    situationController.text = Provider.of<Situation>(context).situation;
+    problemController.text = Provider.of<Problem>(context).problem;
+    changefellingController.text =
+        Provider.of<Cangefelling>(context).cangefelling;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'ПОДГОТОВКА',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'ПОДГОТОВКА',
       ),
       body: SafeArea(
         child: Padding(
@@ -108,6 +111,7 @@ class PFirstScreen extends StatelessWidget {
                     nextFocus: _changefellingfocus,
                     textChild: ('Ситуации клиента $name'),
                     Controller: situationController,
+                    // initialvalue: situation.situation.toString(),
                   ),
                   SizedBox(
                     height: 20,
@@ -131,9 +135,10 @@ class PFirstScreen extends StatelessWidget {
                     focusNode: _changefellingfocus,
                     currentFocus: _changefellingfocus,
                     nextFocus: _situationfocus,
-                    textChild: ('Чувство на замену'),
+                    textChild: ('Цель клиента'),
                     Controller: changefellingController,
-                    // Texthelper:
+                    Texthelper: 'ситуация + чувство на замену.',
+
                     //     '(Измерима / достижима / позитивна сформулирована)'
                   ),
                   SizedBox(
@@ -164,7 +169,6 @@ class PFirstScreen extends StatelessWidget {
           problem.change(problemController.text);
           situation.change(situationController.text);
           cangefelling.change(changefellingController.text);
-
           print(problem.problem);
           print(situation.situation);
           print(cangefelling.cangefelling);

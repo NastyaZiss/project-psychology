@@ -24,6 +24,9 @@ class PiramidaNevrozaScreen extends StatelessWidget {
     final data = Provider.of<DTN>(context);
     final belief = Provider.of<Belief>(context);
 
+    nameController.text = Provider.of<Name>(context).name;
+    dataController.text = Provider.of<DTN>(context).data;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(

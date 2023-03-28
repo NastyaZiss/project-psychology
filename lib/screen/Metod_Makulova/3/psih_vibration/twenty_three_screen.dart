@@ -7,6 +7,7 @@ import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
+import '../../../../widget/app_bar.dart';
 import '../../../../widget/text_input.dart';
 
 class MTwentyThreeScreen extends StatelessWidget {
@@ -29,11 +30,8 @@ class MTwentyThreeScreen extends StatelessWidget {
     final oldR = Provider.of<Regresion>(context).oldR;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Работа с инстинктом. Вибрация',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'Работа с инстинктом. Вибрация',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

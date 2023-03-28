@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/m_inference.dart';
 import '../../../../info_classes/m_info.dart';
@@ -30,11 +31,8 @@ class MEighteenthScreen extends StatelessWidget {
     final cangefelling = Provider.of<Cangefelling>(context).cangefelling;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '18 ЛОГИЧЕСКИЕ СВЯЗИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '18 ЛОГИЧЕСКИЕ СВЯЗИ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -56,7 +54,7 @@ class MEighteenthScreen extends StatelessWidget {
                           text: '(И)', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              ' Я разрываю связь между тем, что «$situationY» (ситуация в ядре), и тем, что я решил «$decisionY».',
+                              ' Я разрываю связь между тем, что «$situationY» (ситуация в ядре), и тем, что я решил «$instinctY».',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -71,7 +69,7 @@ class MEighteenthScreen extends StatelessWidget {
                           text: '(Р)', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              ' Я разрываю связь между тем, что «$situationY», и тем, что я решил «$decidedBehavesY».',
+                              ' Я разрываю связь между тем, что «$situationY», и тем, что я решил «$decisionY»',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),
@@ -86,7 +84,7 @@ class MEighteenthScreen extends StatelessWidget {
                           text: '(В)', style: TextStyleG.h3boldTextStyle),
                       new TextSpan(
                           text:
-                              ' Я разрываю связь между тем, что «$situationY», и тем, что я решил «$instinctY».',
+                              ' Я разрываю связь между тем, что «$situationY», и тем, что я решил «$decidedBehavesY».',
                           style: TextStyleG.h3baseTextStyle),
                     ]),
               ),

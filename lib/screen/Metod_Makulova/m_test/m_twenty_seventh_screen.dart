@@ -5,6 +5,7 @@ import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_scr
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 
 class MTwentySeventhScreen extends StatelessWidget {
   const MTwentySeventhScreen({super.key});
@@ -19,11 +20,8 @@ class MTwentySeventhScreen extends StatelessWidget {
     final purpose = Provider.of<Cangefelling>(context).purpose;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '27 ПРОГРЕССИЯ ДО НАСТОЯЩЕГО МОМЕНТА',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '27 ПРОГРЕССИЯ ДО НАСТОЯЩЕГО МОМЕНТА',
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -32,7 +30,7 @@ class MTwentySeventhScreen extends StatelessWidget {
                   child: Column(children: [
                     TextNum(
                         mainText:
-                            'Начинаешь расти вверх по возрасту, по всем ситуациям, где ты чувствовал тот же «$instinctR $placebodyR», как в «$situationR». ',
+                            'Начинаешь расти вверх по возрасту, по всем ситуациям, где ты чувствовал тот же «$instinctR $placebodyR», как «$situationR». ',
                         numText: '1. '),
                     TextNum(
                         mainText:

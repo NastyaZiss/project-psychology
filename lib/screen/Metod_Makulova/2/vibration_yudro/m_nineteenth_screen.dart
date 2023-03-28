@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../utils/text_style.dart';
 import 'package:flutter/material.dart';
@@ -28,11 +29,8 @@ class MNinteenthScreen extends StatelessWidget {
     final otherpeopleY = Provider.of<Yudro>(context).otherpeopleY;
     final problem = Provider.of<Problem>(context).problem;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '19 РАБОТА С РЕШЕНИЕМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '19 РАБОТА С РЕШЕНИЕМ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

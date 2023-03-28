@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skripts/info_classes/m_inference.dart';
 import 'package:skripts/info_classes/m_info.dart';
+import 'package:skripts/info_classes/p_controller.dart';
 import 'package:skripts/info_classes/percent.dart';
 import 'package:skripts/screen/Metod_Makulova/1/m_eighth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/2/m_eleventh_screen.dart';
@@ -33,7 +34,6 @@ import 'package:skripts/screen/Metod_Makulova/m_test/m_thirtieth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/m_test/m_twenty_eight_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/m_test/m_twenty_ninth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/m_test/m_twenty_seventh_screen.dart';
-import 'package:skripts/screen/Metod_Makulova/m_test/out_screens/m_end_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/m_test/out_screens/m_thirty_first_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/m_test/out_screens/m_thrity_second_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/metod_makulova_screen.dart';
@@ -46,12 +46,12 @@ import 'package:skripts/screen/Piramida_Nevroza/1/p_seven_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_sixth_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_tenth_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_trid_screen.dart';
-import 'package:skripts/screen/Piramida_Nevroza/2/P_end_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/2/p_eleventh_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/piramida_nevroza.dart';
-import 'package:skripts/screen/home_screen.dart';
+import 'package:skripts/screen/main_screns/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/2/m_fifteenth_screen.dart';
+import 'package:skripts/screen/main_screns/splash_screen.dart';
 
 import 'info_classes/m_yudro.dart';
 import 'info_classes/p_belief.dart';
@@ -82,6 +82,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => Yudro()),
         ChangeNotifierProvider(create: (_) => Percent()),
         ChangeNotifierProvider(create: (_) => Belief()),
+        ChangeNotifierProvider(create: (_) => ControllerYudro()),
       ],
       child: MaterialApp(
         title: 'Skripts',
@@ -93,10 +94,12 @@ class MyApp extends StatelessWidget {
         // home: const HomeScreen(),
         initialRoute: '/',
         routes: {
-          '/': (context) => const HomeScreen(),
+          '/': (context) => const SplashScreen(),
+          '/home': (context) => const HomeScreen(),
+
           '/MetodMakulova': (context) => MetodMakulovaScreen(),
           '/PiramidaNevroza': (context) => PiramidaNevrozaScreen(),
-          // '/P1': (context) => const PFirstScreen(),
+
           '/M1': (context) => MFirstScreen(),
           '/M2': (context) => MSecondScreen(),
           '/M3': (context) => MTridScreen(),
@@ -134,7 +137,6 @@ class MyApp extends StatelessWidget {
           '/M30': (context) => MThirtiethScreen(),
           '/M31': (context) => MThirtyFirstScreen(),
           '/M32': (context) => MThirtySecondScreen(),
-          '/M33': (context) => MEndScreen(),
 
           '/M200': (context) => MTwoHundredthScreen(),
 
@@ -149,8 +151,7 @@ class MyApp extends StatelessWidget {
           '/P9': (context) => PNinethScreen(),
           '/P10': (context) => PTenthScreen(),
 
-          '/P11': (context) => PEleventhScreen(),
-          '/P12': (context) => PEndScreen(),
+          '/P11': (context) => EndPScreen(),
         },
       ),
     );

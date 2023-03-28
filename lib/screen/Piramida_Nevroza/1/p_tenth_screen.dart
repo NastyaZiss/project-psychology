@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../utils/text_style.dart';
 
@@ -10,12 +11,8 @@ class PTenthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '10 ЗАВЕРШЕНИЕ КОНСУЛЬТАЦИИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
-      ),
+      appBar: AppBarG(
+        text: '10 ЗАВЕРШЕНИЕ КОНСУЛЬТАЦИИ',),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -53,7 +50,7 @@ class PTenthScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/P12');
+          Navigator.pushNamed(context, '/P11');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

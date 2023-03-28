@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -28,11 +29,8 @@ class MSeventhScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final regresion = Provider.of<Regresion>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '7 ВМЕСТО РЕГРЕССИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '7 ВМЕСТО РЕГРЕССИ',
       ),
       body: SingleChildScrollView(
         child: SafeArea(

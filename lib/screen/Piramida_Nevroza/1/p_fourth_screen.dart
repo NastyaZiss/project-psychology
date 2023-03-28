@@ -8,6 +8,7 @@ import '../../../info_classes/m_info.dart';
 import '../../../info_classes/p_belief.dart';
 import '../../../info_classes/p_belief.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/text_input.dart';
 import '../../Metod_Makulova/3/m_twelfteenth_screen.dart';
 
@@ -27,12 +28,13 @@ class PFourthScreen extends StatelessWidget {
     final inference = Provider.of<InferenceY>(context);
     final belief = Provider.of<Belief>(context);
 
+    situationController.text = Provider.of<Situation>(context).situation;
+    placeController.text = Provider.of<Diagnostic>(context).placebody;
+    aboutnegativController.text = Provider.of<Diagnostic>(context).aboutnegativ;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '4 ВЫЯВЛЕНИЕ НЕГАТИВНОГО УБЕЖДЕНИЯ ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '4 ВЫЯВЛЕНИЕ НЕГАТИВНОГО УБЕЖДЕНИЯ ',
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -48,8 +50,11 @@ class PFourthScreen extends StatelessWidget {
                 focusNode: _situationfocus,
                 nextFocus: _situationfocus,
                 currentFocus: _aboutnegativfocus,
-                textChild: ('Место'),
+                textChild: ('Ситуация'),
                 Controller: situationController,
+              ),
+              SizedBox(
+                height: 20,
               ),
               TextNum(
                   mainText: 'Где в теле в этот момент дискомфорт? ',

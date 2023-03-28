@@ -9,6 +9,7 @@ import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
+import '../../../../widget/app_bar.dart';
 import '../../2/vibration_yudro/m_nineteenth_screen.dart';
 
 class MTwentySixthScreen extends StatelessWidget {
@@ -32,11 +33,8 @@ class MTwentySixthScreen extends StatelessWidget {
     final otherpeople = Provider.of<Regresion>(context).otherpeople;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '26 РАБОТА С РЕШЕНИЕМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '26 РАБОТА С РЕШЕНИЕМ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

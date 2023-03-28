@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../info_classes/p_belief.dart';
@@ -23,11 +24,8 @@ class PSeventhScreen extends StatelessWidget {
 
     final belief = Provider.of<Belief>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '7 шаг4 РАБОТА С БЛОКОМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '7 шаг4 РАБОТА С БЛОКОМ',
       ),
       body: SafeArea(
           child: SingleChildScrollView(

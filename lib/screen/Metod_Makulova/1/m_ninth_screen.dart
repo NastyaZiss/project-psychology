@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 import 'package:skripts/widget/text_input.dart';
 
 import '../../../info_classes/m_info.dart';
@@ -30,11 +31,8 @@ class _MNinthScreenState extends State<MNinthScreen> {
     final instinct =
         Provider.of<Instinct>(context); // with decision решение в подобных сит
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'РЕШЕНИЕ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'РЕШЕНИЕ',
       ),
       body: SingleChildScrollView(
         child: SafeArea(

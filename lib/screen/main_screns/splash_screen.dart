@@ -9,22 +9,18 @@ import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 
-class EndPScreen extends StatelessWidget {
-  const EndPScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return EasySplashScreen(
       logo: Image.asset(
-        'assets/end_p.gif',
+        'assets/logo.gif',
       ),
-      logoWidth: 200,
+      logoWidth: 100,
       // gradientBackground: Gradient.lerp(c, b, t),
       showLoader: false,
-      title: Text(
-        'Консультация завершена!',
-        style: TextStyleG.h2TextStyle,
-      ),
       durationInSeconds: 3,
       navigator: HomeScreen(),
     );

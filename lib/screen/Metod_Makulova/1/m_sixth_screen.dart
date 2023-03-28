@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -20,11 +21,8 @@ class _MSixthScreenState extends State<MSixthScreen> {
     final name = Provider.of<Name>(context).name;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '6 ВМЕСТО РЕГРЕССИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '6 ВМЕСТО РЕГРЕССИ',
       ),
       body: SafeArea(
           child: Padding(

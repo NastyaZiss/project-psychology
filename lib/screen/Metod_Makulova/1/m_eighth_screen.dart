@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -37,11 +38,8 @@ class _MEighthScreenState extends State<MEighthScreen> {
     final instinct = Provider.of<Instinct>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '8 ИНСТИНКТ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '8 ИНСТИНКТ',
       ),
       body: SingleChildScrollView(
         child: SafeArea(

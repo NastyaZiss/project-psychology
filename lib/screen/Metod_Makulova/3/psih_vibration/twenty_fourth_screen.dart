@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
@@ -24,11 +25,8 @@ class MTwentyFourthScreen extends StatelessWidget {
     final percentf = Provider.of<Percent>(context).percentOne;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '24ОБРАТНЫЙ ПРОЦЕСС',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '24 ОБРАТНЫЙ ПРОЦЕСС',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

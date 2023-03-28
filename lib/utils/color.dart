@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-class ColorG{
+class ColorG {
   static const MaterialColor main = Colors.deepPurple;
 }

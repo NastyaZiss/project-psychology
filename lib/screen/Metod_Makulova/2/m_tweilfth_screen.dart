@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
@@ -27,11 +28,8 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
     final yudro = Provider.of<Yudro>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'ЯДРО',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'ЯДРО',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

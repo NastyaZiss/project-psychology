@@ -4,6 +4,7 @@ import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 
 class PSecondScreen extends StatelessWidget {
   PSecondScreen({super.key});
@@ -15,12 +16,11 @@ class PSecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final problem = Provider.of<Problem>(context).problem;
     final purpose = Provider.of<Cangefelling>(context);
+
+    purposeController.text = Provider.of<Cangefelling>(context).purpose;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Ролевая позиция',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'Ролевая позиция',
       ),
       body: SafeArea(
           child: Padding(

@@ -10,6 +10,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final Iconsuffix;
   final TypeKeyboard;
   final Controller;
+  final String? initialvalue;
   // final MaskTextInputFormatter maskCustom;
   final Function()? onFieldSubmitted;
   // Function(String?) onSavedCustom;
@@ -35,6 +36,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.currentFocus,
     this.nextFocus,
     this.onFieldSubmitted,
+    this.initialvalue,
     // required this.userInfo,
     // this.onSavedCustom,
     // this.bOT,
@@ -50,6 +52,7 @@ class TextFormFieldWidget extends StatelessWidget {
       //   onSavedCustom(value);
       // },
       controller: Controller,
+      // initialValue: initialvalue,
       decoration: InputDecoration(
         labelText: textChild,
         filled: true,
@@ -86,3 +89,11 @@ class TextFormFieldWidget extends StatelessWidget {
     );
   }
 }
+
+// initialvaluevoid(String? initialValue) {
+//   if (initialValue!.isEmpty){
+//     return initialValue;
+//   }else{
+//     return ' .';
+//   }
+// }

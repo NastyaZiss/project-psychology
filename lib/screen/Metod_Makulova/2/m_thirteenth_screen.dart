@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
@@ -28,11 +29,8 @@ class _MThirteenthfScreenState extends State<MThirteenthfScreen> {
     final oldY = Provider.of<Yudro>(context).oldY;
     final situationY = Provider.of<Yudro>(context).situationY;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          ' 30 ИНСТИНКТ ЯДРО',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: ' 30 ИНСТИНКТ ЯДРО',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

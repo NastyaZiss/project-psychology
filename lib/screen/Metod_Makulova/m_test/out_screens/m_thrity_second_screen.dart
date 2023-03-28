@@ -51,7 +51,7 @@ class MThirtySecondScreen extends StatelessWidget {
                   ])))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/M33');
+          Navigator.pushNamed(context, '/P11');
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

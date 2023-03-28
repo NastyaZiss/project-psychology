@@ -6,6 +6,7 @@ import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 import '../../../info_classes/m_inference.dart';
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/text_input.dart';
 
 class PFifthScreen extends StatelessWidget {
@@ -21,21 +22,22 @@ class PFifthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final placebody = Provider.of<Diagnostic>(context).placebody;
-
     final negativ = Provider.of<Diagnostic>(context).aboutnegativ;
-
     final inference = Provider.of<InferenceY>(context);
     final data = Provider.of<DTN>(context).data;
     final placeandaboutnegativ = Provider.of<Diagnostic>(context);
     final belief = Provider.of<Belief>(context);
+
+    placeController.text = placebody;
+    aboutnegativController.text = negativ;
+    aboutWorldController.text =
+        Provider.of<InferenceClass>(context).aboutWorldling;
+
     // final inference = Provider.of<InferenceY>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '5 шаг 2 РАБОТА С НЕГАТИВНЫМ УБЕЖДЕНИЕМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '5 шаг 2 РАБОТА С НЕГАТИВНЫМ УБЕЖДЕНИЕМ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -78,7 +80,7 @@ class PFifthScreen extends StatelessWidget {
                     numText: '7. '),
                 TextFormFieldWidget(
                   focusNode: _placefocus,
-                  nextFocus: _placefocus,
+                  nextFocus: _aboutnegativfocus,
                   currentFocus: _placefocus,
                   textChild: ('Место'),
                   Controller: placeController,
@@ -113,7 +115,10 @@ class PFifthScreen extends StatelessWidget {
                               MaterialStateProperty.all(const Size(10, 50)),
                         ),
                         onPressed: () {
-                          belief.add(aboutnegativController.text);
+                          String placeandbelief = placeController.text +
+                              ' ' +
+                              aboutnegativController.text;
+                          belief.add(placeandbelief);
                           print(belief.innerList.reversed
                               .toSet()
                               .toList()
@@ -130,6 +135,7 @@ class PFifthScreen extends StatelessWidget {
                           String placeandbelief = placeController.text +
                               ' ' +
                               aboutnegativController.text;
+                          belief.add(placeandbelief);
 
                           placeandaboutnegativ
                               .changeAN(aboutnegativController.text);
@@ -158,6 +164,7 @@ class PFifthScreen extends StatelessWidget {
         onPressed: () {
           String placeandbelief =
               placeController.text + ' ' + aboutnegativController.text;
+          belief.add(placeandbelief);
 
           placeandaboutnegativ.changeAN(aboutnegativController.text);
           placeandaboutnegativ.changeP(placeController.text);

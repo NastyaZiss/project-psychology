@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
@@ -27,11 +28,8 @@ class MSeventeenthScreen extends StatelessWidget {
     final placebodyY = Provider.of<Yudro>(context).placebodyY;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '17 ОБРАТНЫЙ ПРОЦЕСС',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '17 ОБРАТНЫЙ ПРОЦЕСС',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

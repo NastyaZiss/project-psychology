@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../utils/text_style.dart';
 
@@ -35,17 +36,15 @@ class _MTridScreenState extends State<MTridScreen> {
   Widget build(BuildContext context) {
     final problem = Provider.of<Problem>(context).problem;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Контекст. Страхи и мифы',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: 'Контекст. Страхи и мифы',
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.start, children: [
               // Row(
               //   mainAxisAlignment: MainAxisAlignment.start,
               //   children: [

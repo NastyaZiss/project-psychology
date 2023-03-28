@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
@@ -38,11 +39,8 @@ class _MFourthScreenState extends State<MFourthScreen> {
     final placeandaboutnegativ = Provider.of<Diagnostic>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '1-ДИАГНОСТИКА',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '1-ДИАГНОСТИКА',
       ),
       body: SafeArea(
           child: SingleChildScrollView(

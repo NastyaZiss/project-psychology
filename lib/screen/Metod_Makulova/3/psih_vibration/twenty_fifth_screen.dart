@@ -8,6 +8,7 @@ import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
+import '../../../../widget/app_bar.dart';
 import '../../../../widget/text_input.dart';
 
 class MTwentyFifthScreen extends StatelessWidget {
@@ -31,11 +32,8 @@ class MTwentyFifthScreen extends StatelessWidget {
     final percentT = Provider.of<Percent>(context).percentTwo;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '25 ЛОГИЧЕСКИЕ СВЯЗИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '25 ЛОГИЧЕСКИЕ СВЯЗИ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

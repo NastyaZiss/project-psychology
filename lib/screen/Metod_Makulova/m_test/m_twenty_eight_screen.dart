@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skripts/info_classes/p_controller.dart';
 import 'package:skripts/info_classes/percent.dart';
 import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
@@ -26,6 +27,7 @@ class MTwentyEightScreen extends StatelessWidget {
     final problem = Provider.of<Problem>(context).problem;
     final situation = Provider.of<Situation>(context).situation;
     final precent = Provider.of<Percent>(context).percentTwo;
+    final controller = Provider.of<ControllerYudro>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -70,7 +72,12 @@ class MTwentyEightScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/M29');
+          // print(controller)
+          if (controller.controller == true) {
+            Navigator.pushNamed(context, '/M29');
+          } else {
+            Navigator.pushNamed(context, '/M30');
+          }
         },
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),

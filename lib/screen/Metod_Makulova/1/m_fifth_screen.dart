@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/utils/color.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -19,11 +20,8 @@ class _MFifthScreenState extends State<MFifthScreen> {
     final aboutnegativ = Provider.of<Diagnostic>(context).aboutnegativ;
     final placebody = Provider.of<Diagnostic>(context).placebody;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '5 2-ТЕКСТ ИНДУКЦИЯ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '5 2-ТЕКСТ ИНДУКЦИЯ',
       ),
       body: SafeArea(
           child: SingleChildScrollView(

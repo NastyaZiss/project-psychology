@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -53,11 +54,8 @@ class _MTenthScreenState extends State<MTenthScreen> {
     final data = Provider.of<DTN>(context).data;
     final name = Provider.of<Name>(context).name; //выводя
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '10 ВЫВОД',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '10 ВЫВОД',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

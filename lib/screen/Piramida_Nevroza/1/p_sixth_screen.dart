@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/2/vibration_yudro/m_nineteenth_screen.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_inference.dart';
 import '../../../info_classes/m_info.dart';
@@ -28,11 +29,8 @@ class _PSixthScreenState extends State<PSixthScreen> {
     final data = Provider.of<DTN>(context).data;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '6 шаг3 РАБОТА С ПУСТОТНОСТЬЮ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '6 шаг3 РАБОТА С ПУСТОТНОСТЬЮ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

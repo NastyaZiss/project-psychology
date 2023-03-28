@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/utils/text_style.dart';
 
-import '../info_classes/p_belief.dart';
+import '../../info_classes/p_belief.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_yudro.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -19,11 +20,8 @@ class MFourteenthScreen extends StatelessWidget {
         Provider.of<Yudro>(context); // with decision решение в подобных сит
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '14 РЕШЕНИЕ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '14 РЕШЕНИЕ',
       ),
       body: SingleChildScrollView(
         child: SafeArea(

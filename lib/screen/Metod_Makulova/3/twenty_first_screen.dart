@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_yudro.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -18,11 +19,8 @@ class MTwentyFirstScreen extends StatelessWidget {
     final decisionY = Provider.of<Yudro>(context).decisionY;
     final oldY = Provider.of<Yudro>(context).oldY;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '21 ТЕСТ В СИТУАЦИИ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '21 ТЕСТ В СИТУАЦИИ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

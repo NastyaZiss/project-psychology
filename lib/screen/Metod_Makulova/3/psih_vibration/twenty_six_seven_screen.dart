@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/m_info.dart';
 import '../../../../info_classes/m_yudro.dart';
@@ -19,11 +20,8 @@ class MTwentySevenandSixScreen extends StatelessWidget {
     final decidedBehaves = Provider.of<InferenceClass>(context).decidedBehaves;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '26.5 РАБОТА С ВЫВОДОМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '26.5 РАБОТА С ВЫВОДОМ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

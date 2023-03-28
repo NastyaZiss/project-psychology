@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../info_classes/m_yudro.dart';
@@ -18,11 +19,8 @@ class MTwelfteenthScreen extends StatelessWidget {
     final decidedBehavesY = Provider.of<InferenceY>(context).decidedBehavesY;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '20 РАБОТА С ВЫВОДОМ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '20 РАБОТА С ВЫВОДОМ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

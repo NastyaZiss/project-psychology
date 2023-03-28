@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_inference.dart';
 import 'package:skripts/info_classes/m_yudro.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
@@ -32,11 +33,8 @@ class MFifteenthScreen extends StatelessWidget {
     final data = Provider.of<DTN>(context).data;
     final name = Provider.of<Name>(context).name;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '15 ВЫВОД ЯДРО',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '15 ВЫВОД ЯДРО',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

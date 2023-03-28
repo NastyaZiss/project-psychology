@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../utils/text_style.dart';
 import 'm_twelfteenth_screen.dart';
@@ -14,11 +15,8 @@ class MTwentySecondScreen extends StatelessWidget {
     final situationR = Provider.of<Regresion>(context).situationR;
     final oldR = Provider.of<Regresion>(context).oldR;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '22 ПРОГРЕССИЯ ДО ПСИХОТРАВМЫ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '22 ПРОГРЕССИЯ ДО ПСИХОТРАВМЫ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(

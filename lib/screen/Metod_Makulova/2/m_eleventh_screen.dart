@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
+import 'package:skripts/info_classes/p_controller.dart';
 
 import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
+import '../../../widget/app_bar.dart';
 import '../../../widget/text_input.dart';
 
 class MEleventhScreen extends StatefulWidget {
@@ -33,15 +35,13 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
     final oldR = Provider.of<Regresion>(context).oldR;
     final situationR = Provider.of<Regresion>(context).situationR;
     final placebody = Provider.of<Instinct>(context).placebody;
+    final controller = Provider.of<ControllerYudro>(context);
 
     //выводя
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '11 РЕГРЕССИЯ_К_ЯДРУ',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '11 РЕГРЕССИЯ_К_ЯДРУ',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -167,8 +167,10 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
                     minimumSize: MaterialStateProperty.all(const Size(10, 50)),
                   ),
                   onPressed: () {
+                    controller.changeFalse(); //если ядра нет, то ставим фолс
                     yudro.changeSY(situationYudroController.text);
                     print(yudro.situationY.toString());
+                    print(controller.controller.toString());
                     Navigator.pushNamed(context, '/M23');
                   },
                   child: Text(
@@ -184,7 +186,8 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
         onPressed: () {
           yudro.changeSY(situationYudroController.text);
           print(yudro.situationY.toString());
-
+          controller.changeTrue(); // Ядро есть
+          print(controller.controller.toString());
           Navigator.pushNamed(context, '/M12');
         },
         tooltip: 'Дальше',

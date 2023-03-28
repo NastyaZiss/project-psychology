@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/percent.dart';
 import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
+import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/m_inference.dart';
 import '../../../../info_classes/m_info.dart';
@@ -21,16 +22,14 @@ class MSixteenthScreen extends StatelessWidget {
     final instinctY = Provider.of<Yudro>(context).instinctY;
     final placebodyY = Provider.of<Yudro>(context).placebodyY;
     final situationY = Provider.of<Yudro>(context).situationY;
+    final oldY = Provider.of<Yudro>(context).oldY;
     final data = Provider.of<DTN>(context).data;
     final name = Provider.of<Name>(context).name;
     final percent = Provider.of<Percent>(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          '16 Работа с инстинктом. Вибрация',
-          style: TextStyleG.AppBarTextStyle,
-        ),
+      appBar: AppBarG(
+        text: '16 Работа с инстинктом. Вибрация',
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -46,7 +45,7 @@ class MSixteenthScreen extends StatelessWidget {
                             text: '1. ', style: TextStyleG.h3boldTextStyle),
                         new TextSpan(
                             text:
-                                '1. Там и тогда, в три года, когда «$situationY», сконцентрируйся на чувстве «$instinctY» «$placebodyY».',
+                                '1. Там и тогда, в $oldY, когда «$situationY», сконцентрируйся на чувстве «$instinctY» «$placebodyY».',
                             style: TextStyleG.h3baseTextStyle),
                       ]),
                 ),
@@ -112,7 +111,6 @@ class MSixteenthScreen extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                
                 TextFormFieldWidget(
                     textChild: 'проценты',
                     Texthelper: 'например: 10, 20, 30',
