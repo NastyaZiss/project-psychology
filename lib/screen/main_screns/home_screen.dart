@@ -18,9 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          "Выбор метода",
-          style: TextStyleG.AppBarTextStyle,
+        title: SizedBox(
+          child: Image.asset('assets/logo_png.png'),
+          height: 50,
+          width: 50,
         ),
       ),
       body: SafeArea(
@@ -47,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ElevatedButton(
                     onPressed: () {
                       belief.clear();
+                      
                       Navigator.pushNamed(context, '/PiramidaNevroza');
                     },
                     child: Text('Пирамида невроза'))),

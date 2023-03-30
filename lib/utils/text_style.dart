@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class TextStyleG {
   static const AppBarTextStyle = TextStyle(
-      fontSize: 20, fontWeight: FontWeight.bold, color: Colors.deepPurple
+      fontSize: 20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 25, 10, 50)
       // color: Colors.white,
       );
   static const h2TextStyle = TextStyle(

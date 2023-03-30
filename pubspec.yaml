@@ -68,6 +68,7 @@ flutter:
   assets:
     - assets/logo.gif
     - assets/end_p.gif
+    - assets/logo_png.png
     # - assets/end_m.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see

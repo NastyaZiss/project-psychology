@@ -18,7 +18,8 @@ class EndPScreen extends StatelessWidget {
       logo: Image.asset(
         'assets/end_p.gif',
       ),
-      logoWidth: 200,
+      logoWidth: 100,
+
       // gradientBackground: Gradient.lerp(c, b, t),
       showLoader: false,
       title: Text(

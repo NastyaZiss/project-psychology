@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
       logo: Image.asset(
         'assets/logo.gif',
       ),
-      logoWidth: 100,
+      logoWidth: 200,
       // gradientBackground: Gradient.lerp(c, b, t),
       showLoader: false,
       durationInSeconds: 3,
