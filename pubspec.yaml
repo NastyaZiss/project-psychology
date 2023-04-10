@@ -41,8 +41,11 @@ dependencies:
   easy_splash_screen: ^1.0.4
   flutter_launcher_icons: ^0.12.0
   readmore: ^2.2.0
-  agconnect_auth: ^1.1.0
-  agconnect_core: ^1.1.0
+  huawei_account: ^6.4.0+301
+  agconnect_auth: ^1.6.0+300
+  
+  
+  
 
 
 dev_dependencies:
