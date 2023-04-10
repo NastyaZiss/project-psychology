@@ -32,7 +32,7 @@ class MTwentyFourthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               ReadMore(
                   mainText: 'СПРЯТАТЬСЯ',
                   leadText:

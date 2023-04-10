@@ -47,6 +47,7 @@ class TextFormFieldWidget extends StatelessWidget {
     // User newUser = User(email: '', pas: '', name: '', pol: '', phone: '');
 
     return TextFormField(
+      style: TextStyle(),
       // onSaved: (value) {
       //   print('value${value}');
       //   onSavedCustom(value);
@@ -55,9 +56,14 @@ class TextFormFieldWidget extends StatelessWidget {
       // initialValue: initialvalue,
       decoration: InputDecoration(
         labelText: textChild,
+        labelStyle: TextStyle(
+          color: Color.fromARGB(255, 147, 96, 234),
+          fontSize: 18,
+        ),
         filled: true,
         // fillColor: ColorG.buttonBackgroundColor,
         helperText: Texthelper,
+
         suffixIcon: IconButton(
           icon: Icon(
             Iconsuffix,
@@ -68,7 +74,7 @@ class TextFormFieldWidget extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide:
-              BorderSide(color: Color.fromARGB(255, 168, 190, 197), width: 2.0),
+              BorderSide(color: Color.fromARGB(255, 220, 202, 236), width: 2.0),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),

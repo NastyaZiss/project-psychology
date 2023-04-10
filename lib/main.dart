@@ -93,8 +93,12 @@ class MyApp extends StatelessWidget {
         ),
         // home: const HomeScreen(),
         initialRoute: '/',
+        // onGenerateRoute: (route) => onGenerateRoute(route),
         routes: {
           '/': (context) => const SplashScreen(),
+          '/singup': (context) => const SplashScreen(),
+          '/singin': (context) => const SplashScreen(),
+
           '/home': (context) => const HomeScreen(),
 
           '/MetodMakulova': (context) => MetodMakulovaScreen(),
@@ -112,7 +116,7 @@ class MyApp extends StatelessWidget {
           '/M10': (context) => MTenthScreen(),
 
           '/M11': (context) => MEleventhScreen(),
-          '/M11': (context) => MEleventhScreen(),
+          
           '/M12': (context) => MTwelfScreen(),
           '/M13': (context) => MThirteenthfScreen(),
           '/M14': (context) => MFourteenthScreen(),

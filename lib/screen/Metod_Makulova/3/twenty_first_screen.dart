@@ -27,6 +27,7 @@ class MTwentyFirstScreen extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(17.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextNum(
                     mainText:

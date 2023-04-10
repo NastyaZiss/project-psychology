@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
@@ -37,22 +38,12 @@ class MSeventhScreen extends StatelessWidget {
             child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '3.	', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Хорошо, спроси у себя, « В каком я был возрасте, когда ты решило мне помогать таким образом?»',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
-              SizedBox(
-                height: 15,
-              ),
+              TextNum(
+                  mainText:
+                      'Хорошо, спроси у себя, « В каком я был возрасте, когда ты решило мне помогать таким образом?»',
+                  numText: '3.	'),
               TextFormFieldWidget(
                 focusNode: _oldRfocus,
                 currentFocus: _oldRfocus,
@@ -64,21 +55,10 @@ class MSeventhScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '4.	', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Хорошо. Смотри, как выглядишь, где находишься, в помещении или на улице? ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
-              SizedBox(
-                height: 15,
-              ),
+              TextNum(
+                  mainText:
+                      'Хорошо. Смотри, как выглядишь, где находишься, в помещении или на улице? ',
+                  numText: '4.	'),
               TextFormFieldWidget(
                 focusNode: _placeRsfocus,
                 currentFocus: _placeRsfocus,
@@ -89,20 +69,7 @@ class MSeventhScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '5.	', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text: 'Один или с кем-то?',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
-              SizedBox(
-                height: 15,
-              ),
+              TextNum(mainText: 'Один или с кем-то?', numText: '5.	'),
               TextFormFieldWidget(
                 focusNode: _otherpeoplefocus,
                 currentFocus: _otherpeoplefocus,
@@ -113,18 +80,9 @@ class MSeventhScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              RichText(
-                text: TextSpan(style: TextStyleG.h3baseTextStyle, children: <
-                    TextSpan>[
-                  new TextSpan(text: '6.	', style: TextStyleG.h3boldTextStyle),
-                  new TextSpan(
-                      text: 'Что там происходит, что возникает это чувство?',
-                      style: TextStyleG.h3baseTextStyle),
-                ]),
-              ),
-              SizedBox(
-                height: 15,
-              ),
+              TextNum(
+                  mainText: 'Что там происходит, что возникает это чувство?',
+                  numText: '6.	'),
               TextFormFieldWidget(
                 focusNode: _situationRfocus,
                 currentFocus: _situationRfocus,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 import 'package:skripts/widget/app_bar.dart';
 import 'package:skripts/widget/text_input.dart';
 
@@ -38,19 +39,12 @@ class _MNinthScreenState extends State<MNinthScreen> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '1. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Как решил чувствовать себя в подобных ситуациях дальше? ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              TextNum(
+                  mainText:
+                      'Как решил чувствовать себя в подобных ситуациях дальше? ',
+                  numText: '1. '),
               new ListTile(
                 leading: new MyBullet(),
                 title: new Text('Бояться'),

@@ -27,7 +27,7 @@ class MFourteenthScreen extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               RichText(
                 text: TextSpan(
                     style: TextStyleG.h3baseTextStyle,

@@ -40,7 +40,7 @@ class MTwentySixthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               BaseText(
                 number: '1. ',
                 akText:

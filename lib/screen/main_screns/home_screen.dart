@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:skripts/utils/text_style.dart';
 
 import '../../info_classes/p_belief.dart';
+import '../../widget/main_bottom.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: SizedBox(
-          child: Image.asset('assets/logo_png.png'),
+          child: Image.asset('assets/logo.png'),
           height: 50,
           width: 50,
         ),
@@ -29,29 +30,24 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.height * 0.09,
-              child: ElevatedButton(
-                  style: ButtonStyle(),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/MetodMakulova');
-                  },
-                  child: Text('Метод Макулова')),
+            MainButtom(
+              text: 'Метод Макулова',
+              fun_onPressed: () {
+                Navigator.pushNamed(context, '/MetodMakulova');
+              },
             ),
             SizedBox(
               height: 20,
             ),
-            SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.09,
-                child: ElevatedButton(
-                    onPressed: () {
-                      belief.clear();
-                      
-                      Navigator.pushNamed(context, '/PiramidaNevroza');
-                    },
-                    child: Text('Пирамида невроза'))),
+            MainButtom(
+                text: 'Пирамида Невроза',
+                fun_onPressed: () {
+                  belief.clear();
+                  Navigator.pushNamed(context, '/PiramidaNevroza');
+                }),
+            // MainButtom(text: 'Регистрация', fun_onPressed(){
+            //       Navigator.pushNamed(context, '/singup');
+            // },)
           ],
         ),
       )),
@@ -70,3 +66,4 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialStateProperty.resolveWith(getColor);
   }
 }
+

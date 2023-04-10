@@ -88,9 +88,9 @@ class _MFourthScreenState extends State<MFourthScreen> {
                   mainText:
                       '	Где это чувство? Там же в груди или сместилось? Например, сместилось в живот. ',
                   numText: '5.	'),
-              SizedBox(
-                height: 15,
-              ),
+              // SizedBox(
+              //   height: 15,
+              // ),
               TextFormFieldWidget(
                 focusNode: _placefocus,
                 currentFocus: _placefocus,

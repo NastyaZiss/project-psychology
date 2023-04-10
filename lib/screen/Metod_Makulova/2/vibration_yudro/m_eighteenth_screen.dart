@@ -38,7 +38,8 @@ class MEighteenthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               TextNum(
                   mainText:
                       'Входи в то, что осталось от этого чувства «$placebodyY», становись им. Положи руку на это место в теле. И обращаясь внутрь себя, вглубь себя, я вслух, ты про себя: ',

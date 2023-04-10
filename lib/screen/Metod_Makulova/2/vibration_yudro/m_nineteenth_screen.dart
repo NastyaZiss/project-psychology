@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../utils/text_style.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../info_classes/m_inference.dart';
@@ -36,7 +35,7 @@ class MNinteenthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               BaseText(
                 number: '1. ',
                 akText:

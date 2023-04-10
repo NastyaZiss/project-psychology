@@ -39,7 +39,7 @@ class MTwentyFifthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               Text(
                 'Входи в то, что осталось от этого чувства «$placebody» в эти $percentT, становись им. Положи руку на это место в теле. И обращаясь внутрь себя, вглубь себя, я вслух, ты про себя: ',
                 style: TextStyleG.h3baseTextStyle,

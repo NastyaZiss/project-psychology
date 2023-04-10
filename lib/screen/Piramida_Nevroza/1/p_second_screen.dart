@@ -23,44 +23,48 @@ class PSecondScreen extends StatelessWidget {
         text: 'Ролевая позиция',
       ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(17.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Form(
-                child: Column(
-              children: [
-                TextNum(
-                    mainText: 'Как вы пытались решить эту проблему до этого? ',
-                    numText: '4. '),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextNum(
-                  mainText: 'И все это не сработало, поэтому вы здесь, верно? ',
-                  numText: '5. ',
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            )),
-            SizedBox(
-              height: 15,
-            ),
-            TextNum(
-              mainText:
-                  'То, что мы будем с вами делать, будет отличаться от того, что вы делали до этого. Поэтому чтобы достичь результата, вам нужно следовать за мной сразу, полностью, автоматически, не обдумывая. Потому что до этого вы уже обдумывали, анализировали, но это не сработало. Верно? ',
-              numText: '5. ',
-            ),
-          ],
+          child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(17.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Form(
+                  child: Column(
+                children: [
+                  TextNum(
+                      mainText:
+                          'Как вы пытались решить эту проблему до этого? ',
+                      numText: '4. '),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextNum(
+                    mainText:
+                        'И все это не сработало, поэтому вы здесь, верно? ',
+                    numText: '5. ',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              )),
+              SizedBox(
+                height: 15,
+              ),
+              TextNum(
+                mainText:
+                    'То, что мы будем с вами делать, будет отличаться от того, что вы делали до этого. Поэтому чтобы достичь результата, вам нужно следовать за мной сразу, полностью, автоматически, не обдумывая. Потому что до этого вы уже обдумывали, анализировали, но это не сработало. Верно? ',
+                numText: '5. ',
+              ),
+            ],
+          ),
         ),
       )),
       floatingActionButton: FloatingActionButton(

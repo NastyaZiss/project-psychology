@@ -77,7 +77,7 @@ class _MetodMakulovaScreenState extends State<MetodMakulovaScreen> {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               TextFormFieldWidget(
                 focusNode: _namefocus,

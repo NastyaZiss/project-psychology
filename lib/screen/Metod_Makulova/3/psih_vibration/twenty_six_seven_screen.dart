@@ -27,7 +27,7 @@ class MTwentySevenandSixScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               TextNum(
                   mainText:
                       'Становись там маленьким собой, которого ты простил. Глядя на все это по-новому, какие там новые выводы можно сделать, новые решения принять, чтобы потом в тех ситуациях, где «$problem» (проблема Клиента), начать реагировать по-новому «$purpose» (Цель Клиента).',

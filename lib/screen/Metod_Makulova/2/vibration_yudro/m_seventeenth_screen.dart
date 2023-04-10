@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:readmore/readmore.dart';
 import 'package:skripts/widget/app_bar.dart';
 
 import '../../../../info_classes/m_yudro.dart';
 import '../../../../info_classes/percent.dart';
 import '../../../../utils/text_style.dart';
-import 'package:readmore/readmore.dart';
 
 import '../../../../widget/text_input.dart';
 import '../../3/m_twelfteenth_screen.dart';
@@ -35,7 +35,7 @@ class MSeventeenthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17),
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
               ReadMore(
                   mainText: 'СПРЯТАТЬСЯ',
                   leadText:

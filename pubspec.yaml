@@ -39,11 +39,28 @@ dependencies:
   provider: ^6.0.5
   flame_splash_screen: ^0.1.0
   easy_splash_screen: ^1.0.4
+  flutter_launcher_icons: ^0.12.0
+  readmore: ^2.2.0
+  agconnect_auth: ^1.1.0
+  agconnect_core: ^1.1.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/launcher/icon.png"
+  image_path_android: "assets/launcher/icon.png"
+  windows:
+    generate: true
+    image_path: "assets/launcher/icon.png"
+    icon_size: 48  min:48, max:256, default:48
+
+  # adaptive_icon_background: "assets/launcher/background.png"
+  # adaptive_icon_foreground: "assets/launcher/foreground.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -51,7 +68,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  readmore: ^2.2.0
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -66,9 +83,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/logo.gif
-    - assets/end_p.gif
-    - assets/logo_png.png
+    - assets/
+    - assets/end_peo.gif
+    - assets/launcher/icon.png
+    # - assets/end_kubl.gif
+    # - assets/end_smile.gif
+    # - assets/end_two.gif
+
     # - assets/end_m.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see

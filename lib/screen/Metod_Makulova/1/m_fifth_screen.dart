@@ -5,6 +5,7 @@ import 'package:skripts/widget/app_bar.dart';
 
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
+import '../3/m_twelfteenth_screen.dart';
 
 class MFifthScreen extends StatefulWidget {
   const MFifthScreen({super.key});
@@ -28,39 +29,23 @@ class _MFifthScreenState extends State<MFifthScreen> {
         child: Padding(
           padding: const EdgeInsets.all(17.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '1.	', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Сделай приятный полный глубокий вдох С УСИЛИЕМ, как бы пропуская воздух от живота через грудь к голове и свободный НЕ полный выход БЕЗ усилий. ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
-              ),
-              SizedBox(
-                height: 15,
+              TextNum(
+                numText: '1. ',
+                mainText:
+                    'Сделай приятный полный глубокий вдох С УСИЛИЕМ, как бы пропуская воздух от живота через грудь к голове и свободный НЕ полный выход БЕЗ усилий. ',
               ),
               Text(
                 'Делаете вместе с Клиентом это 30 раз, на выдохе задерживаете дыхание на столько на сколько Клиент сам может. Вдох, задежка на 15 секунд, выдох и дышишь в собственном темпе. ',
                 style: TextStyleG.h4akTextStyle,
               ),
               SizedBox(
-                height: 15,
+                height: 30,
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '2.	', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text: 'Закройте глаза.',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: '2.	',
+                mainText: 'Закройте глаза.',
               ),
               SizedBox(
                 height: 15,
@@ -80,18 +65,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
               SizedBox(
                 height: 15,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.pause_circle_filled_outlined,
-                    color: ColorG.main,
-                  ),
-                  Text(
-                    'Пауза примерно 30 секунд',
-                    style: TextStyleG.h4akTextStyle,
-                  )
-                ],
-              ),
+              PauseWidget(),
               SizedBox(
                 height: 15,
               ),
@@ -110,18 +84,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
               SizedBox(
                 height: 25,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.pause_circle_filled_outlined,
-                    color: ColorG.main,
-                  ),
-                  Text(
-                    'Пауза примерно 30 секунд',
-                    style: TextStyleG.h4akTextStyle,
-                  )
-                ],
-              ),
+              PauseWidget(),
               SizedBox(
                 height: 25,
               ),
@@ -140,21 +103,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
               SizedBox(
                 height: 25,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.pause_circle_filled_outlined,
-                    color: ColorG.main,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    'Пауза примерно 30 секунд',
-                    style: TextStyleG.h4akTextStyle,
-                  )
-                ],
-              ),
+              PauseWidget(),
               SizedBox(
                 height: 25,
               ),
@@ -173,21 +122,7 @@ class _MFifthScreenState extends State<MFifthScreen> {
               SizedBox(
                 height: 25,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.pause_circle_filled_outlined,
-                    color: ColorG.main,
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    'Пауза примерно 30 секунд',
-                    style: TextStyleG.h4akTextStyle,
-                  )
-                ],
-              ),
+              PauseWidget(),
               SizedBox(
                 height: 25,
               ),
@@ -217,6 +152,24 @@ class _MFifthScreenState extends State<MFifthScreen> {
         tooltip: 'Дальше',
         child: const Icon(Icons.navigate_next),
       ),
+    );
+  }
+
+  PauseWidget() {
+    return Row(
+      children: [
+        Icon(
+          Icons.pause_circle_filled_outlined,
+          color: Colors.teal,
+        ),
+        SizedBox(
+          width: 6,
+        ),
+        Text(
+          'Пауза примерно 30 секунд',
+          style: TextStyleG.h4akTextStyle,
+        )
+      ],
     );
   }
 }

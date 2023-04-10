@@ -26,7 +26,8 @@ class MTwelfteenthScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(children: [
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               // Text(
               //   style: TextStyleG.h3baseTextStyle,
               // ),

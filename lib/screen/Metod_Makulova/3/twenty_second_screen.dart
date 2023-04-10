@@ -22,7 +22,7 @@ class MTwentySecondScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextNum(
                     mainText:
