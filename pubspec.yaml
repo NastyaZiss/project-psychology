@@ -43,6 +43,7 @@ dependencies:
   readmore: ^2.2.0
   huawei_account: ^6.4.0+301
   agconnect_auth: ^1.6.0+300
+  mask_text_input_formatter: ^2.4.0
   
   
   

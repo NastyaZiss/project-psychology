@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   // final userInfo;
@@ -61,9 +62,8 @@ class TextFormFieldWidget extends StatelessWidget {
           fontSize: 18,
         ),
         filled: true,
-        // fillColor: ColorG.buttonBackgroundColor,
+        fillColor: Color.fromARGB(255, 248, 233, 255),
         helperText: Texthelper,
-
         suffixIcon: IconButton(
           icon: Icon(
             Iconsuffix,

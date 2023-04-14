@@ -48,6 +48,8 @@ import 'package:skripts/screen/Piramida_Nevroza/1/p_tenth_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/1/p_trid_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/2/p_eleventh_screen.dart';
 import 'package:skripts/screen/Piramida_Nevroza/piramida_nevroza.dart';
+import 'package:skripts/screen/auth_screens/sing_in_screen.dart';
+import 'package:skripts/screen/auth_screens/sing_up_screen.dart';
 import 'package:skripts/screen/main_screns/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/screen/Metod_Makulova/2/m_fifteenth_screen.dart';
@@ -96,8 +98,8 @@ class MyApp extends StatelessWidget {
         // onGenerateRoute: (route) => onGenerateRoute(route),
         routes: {
           '/': (context) => const SplashScreen(),
-          '/singup': (context) => const SplashScreen(),
-          '/singin': (context) => const SplashScreen(),
+          '/singup': (context) => const SingUpScreen(),
+          '/singin': (context) =>  SinginScreen(),
 
           '/home': (context) => const HomeScreen(),
 

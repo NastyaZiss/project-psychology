@@ -45,9 +45,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   belief.clear();
                   Navigator.pushNamed(context, '/PiramidaNevroza');
                 }),
-            // MainButtom(text: 'Регистрация', fun_onPressed(){
-            //       Navigator.pushNamed(context, '/singup');
-            // },)
+            MainButtom(
+              text: 'Регистрация',
+              fun_onPressed: () {
+                Navigator.pushNamed(context, '/singup');
+              },
+            ),
+            MainButtom(
+              text: 'Вход',
+              fun_onPressed: () {
+                Navigator.pushNamed(context, '/singin');
+              },
+            )
           ],
         ),
       )),
@@ -66,4 +75,3 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialStateProperty.resolveWith(getColor);
   }
 }
-

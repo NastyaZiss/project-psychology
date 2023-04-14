@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 
 abstract class TextStyleG {
+  static const SimpleTextStyle = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Color.fromARGB(255, 70, 70, 70),
+    // color: Colors.white,
+  );
+  static const TextButtomStyle = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
+    color: Color.fromARGB(255, 246, 117, 117),
+    // color: Colors.white,
+  );
+  static const buttomTextStyle = TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: Color.fromARGB(255, 255, 255, 255)
+      // color: Colors.white,
+      );
   static const AppBarTextStyle = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
