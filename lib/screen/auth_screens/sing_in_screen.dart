@@ -14,20 +14,20 @@ class SinginScreen extends StatefulWidget {
 
 class _SinginScreenState extends State<SinginScreen> {
   final _pasController = TextEditingController();
-  final _phoneController = TextEditingController();
+  final _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   void dispose() {
     _pasController.dispose();
-    _phoneController.dispose();
+    _emailController.dispose();
     super.dispose();
   }
 
-  final maskFormatter = MaskTextInputFormatter(
-    mask: '+7 (###) ###-##-##',
-    filter: {"#": RegExp(r'[0-9]')},
-    type: MaskAutoCompletionType.lazy,
-  );
+  // final maskFormatter = MaskTextInputFormatter(
+  //   mask: '+7 (###) ###-##-##',
+  //   filter: {"#": RegExp(r'[0-9]')},
+  //   type: MaskAutoCompletionType.lazy,
+  // );
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _SinginScreenState extends State<SinginScreen> {
               Text(
                 'Вход',
                 style: const TextStyle(
-                    color: Colors.teal,
+                    color: Color.fromARGB(255, 164, 86, 190),
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
@@ -55,22 +55,12 @@ class _SinginScreenState extends State<SinginScreen> {
                   key: _formKey,
                   child: Column(children: [
                     TextFormFieldSingInWidget(
-                      Texthelper: 'Формат +7хххххxххxx',
-                      textChild: 'Номер телефона',
-                      TypeKeyboard: TextInputType.phone,
-                      Controller: _phoneController,
-                      vallid_fun: (val) =>
-                          val.isEmpty ? 'Введите свой номер телефона' : null,
                       obscureText: false,
-                      mask: maskFormatter,
+                      textChild: 'Email',
+                      Controller: _emailController,
+                      vallid_fun: null,
+                      mask: MaskTextInputFormatter(),
                     ),
-                    // TextFormFieldSingInWidget(
-                    //   obscureText: false,
-                    //   textChild: 'Email',
-                    //   Controller: _emailController,
-                    //   vallid_fun: null,
-                    //   mask: MaskTextInputFormatter(),
-                    // ),
                     SizedBox(
                       height: 20,
                     ),
@@ -108,15 +98,9 @@ class _SinginScreenState extends State<SinginScreen> {
                     ),
                     OkButtom(
                         submiForm: () {
-                          Navigator.pushNamed(context, '/home');
+                          // Navigator.pushNamed(context, '/home');
                         },
                         text: 'Готово'),
-
-                    // OkButtom(
-                    //   submiForm: () {
-                    //     Navigator.pushNamed(context, '/home');
-                    //   },
-                    // ),
                   ]),
                 ),
               )
@@ -177,3 +161,13 @@ class _SinginScreenState extends State<SinginScreen> {
   //   return MaterialStateProperty.resolveWith(getColor);
   // }
 
+ // TextFormFieldSingInWidget(
+                    //   Texthelper: 'Формат +7хххххxххxx',
+                    //   textChild: 'Номер телефона',
+                    //   TypeKeyboard: TextInputType.phone,
+                    //   Controller: _phoneController,
+                    //   vallid_fun: (val) =>
+                    //       val.isEmpty ? 'Введите свой номер телефона' : null,
+                    //   obscureText: false,
+                    //   mask: maskFormatter,
+                    // ),

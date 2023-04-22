@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'package:skripts/screen/auth_screens/sing_in_screen.dart';
+import 'package:skripts/services/auth/send_register_fun.dart';
 import 'package:skripts/widget/base_buttom.dart';
 import '../../utils/color.dart';
 import '../../utils/text_style.dart';
@@ -36,8 +37,9 @@ class _SingUpScreenState extends State<SingUpScreen> {
 
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
+  final _codController = TextEditingController();
   final _passController = TextEditingController();
-  final _phoneController = TextEditingController();
+  // final _phoneController = TextEditingController();
 
   @override
   void dispose() {
@@ -90,35 +92,30 @@ class _SingUpScreenState extends State<SingUpScreen> {
               SizedBox(
                 height: 15,
               ),
-              SizedBox(
-                height: 15,
-              ),
               TextFormFieldSingInWidget(
-                // currentFocus: _phonefocus,
-                // nextFocus: _emailfocus,
-                // focusNode: _phonefocus,
-                Texthelper: 'Формат +7хххххxххxx',
-                textChild: 'Номер телефона',
-                TypeKeyboard: TextInputType.phone,
-                Controller: _phoneController,
-                vallid_fun: (val) =>
-                    val.isEmpty ? 'Введите свой номер телефона' : null,
                 obscureText: false,
-                mask: maskFormatter,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              OkButtom(submiForm: () {}, text: 'Отправить код на телефон'),
-              SizedBox(
-                height: 20,
-              ),
-              TextFormFieldSingInWidget(
-                textChild: 'Код из СМС',
-                TypeKeyboard: TextInputType.emailAddress,
+                textChild: 'Email',
                 Controller: _emailController,
+                vallid_fun: null,
+                mask: MaskTextInputFormatter(),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              OkButtom(
+                  submiForm: () {
+                    // sendSigninVerificationCode(_emailController.toString());
+                  },
+                  text: 'Отправить код на Email'),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormFieldSingInWidget(
+                textChild: 'Код из письма',
+                TypeKeyboard: TextInputType.emailAddress,
+                Controller: _codController,
                 obscureText: false,
-                vallid_fun: (val) => val.isEmpty ? 'Введите свой  email' : null,
+                vallid_fun: (val) => val.isEmpty ? 'Введите код' : null,
                 mask: MaskTextInputFormatter(),
               ),
               SizedBox(
@@ -160,7 +157,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
       _showDialog(name: _nameController.text);
       print('имя: ${_nameController}');
       print('pass: ${_passController}');
-      print('phone: ${_phoneController}');
+      print('phone: ${_codController}');
       print('email: ${_emailController}');
       // Navigator.pushNamed(context, '/home');
     } else {
@@ -272,3 +269,18 @@ class _PassWidgetFieldState extends State<PassWidgetField> {
     );
   }
 }
+
+
+ // TextFormFieldSingInWidget(
+              //   // currentFocus: _phonefocus,
+              //   // nextFocus: _emailfocus,
+              //   // focusNode: _phonefocus,
+              //   Texthelper: 'Формат +7хххххxххxx',
+              //   textChild: 'Номер телефона',
+              //   TypeKeyboard: TextInputType.phone,
+              //   Controller: _phoneController,
+              //   vallid_fun: (val) =>
+              //       val.isEmpty ? 'Введите свой номер телефона' : null,
+              //   obscureText: false,
+              //   mask: maskFormatter,
+              // ),

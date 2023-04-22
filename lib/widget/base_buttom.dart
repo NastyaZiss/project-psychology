@@ -19,10 +19,10 @@ class _OkButtomState extends State<OkButtom> {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: ElevatedButton(
-        
         onPressed: () => widget.submiForm(),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.teal, // Background color
+          backgroundColor:
+              Color.fromARGB(255, 203, 144, 229), // Background color
         ),
         child: Text(
           widget.text,
