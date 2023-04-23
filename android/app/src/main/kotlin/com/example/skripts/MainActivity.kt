@@ -1,4 +1,4 @@
-package com.example.skripts
+package skripts.huawei
 
 import io.flutter.embedding.android.FlutterActivity
 

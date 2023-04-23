@@ -1,3 +1,4 @@
+import 'package:agconnect_auth/agconnect_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -129,6 +130,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
               ),
               OkButtom(
                 submiForm: () {
+                  _regW();
                   _submiForm();
                   // Navigator.pushNamed(context, '/home');
                 },
@@ -139,6 +141,24 @@ class _SingUpScreenState extends State<SingUpScreen> {
         ),
       ),
     );
+  }
+  Future _regW()async{
+    String email = "k4fos568rhvx7ua@gmail.com";
+
+    VerifyCodeSettings settings = VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 30);
+    VerifyCodeResult? resultVerifyCode = await EmailAuthProvider.requestVerifyCode(email,settings);
+
+    EmailUser user = EmailUser(email, resultVerifyCode!.shortestInterval!, password:'nikita123');
+    AGCAuth.instance.createEmailUser(user)
+    .then((signInResult) async{
+      // success
+      AGCUser? currentUserData =await AGCAuth.instance.currentUser;
+    })
+    .catchError((error) {
+      //fail
+      print(error);
+    });
+
   }
 
   MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {

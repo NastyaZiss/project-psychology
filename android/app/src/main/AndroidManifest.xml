@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.skripts">
+    package="skripts.huawei">
     <application
         android:label="skripts"
         android:name="${applicationName}"

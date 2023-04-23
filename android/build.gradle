@@ -11,7 +11,8 @@ maven {url 'https://developer.huawei.com/repo/'}
         classpath 'com.android.tools.build:gradle:7.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.android.tools.build:gradle:3.5.0'
-        classpath 'com.huawei.agconnect:agcp:1.4.2.301'
+        // classpath 'com.huawei.agconnect:agcp:1.4.2.301'
+         classpath 'com.huawei.agconnect:agcp:1.6.0.300'
     }
 }
 
