@@ -106,7 +106,10 @@ class _SingUpScreenState extends State<SingUpScreen> {
               OkButtom(
                   submiForm: () {
                     // sendSigninVerificationCode(_emailController.toString());
-                  },
+                    //  bool validation =  _submiForm();
+                    // if(validation)
+                      _reqCode();
+                      },
                   text: 'Отправить код на Email'),
               SizedBox(
                 height: 20,
@@ -129,12 +132,21 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 height: 30,
               ),
               OkButtom(
-                submiForm: () {
-                  _regW();
-                  _submiForm();
-                  // Navigator.pushNamed(context, '/home');
+                submiForm: () async {
+                //   bool validation =  _submiForm();
+                //  if(validation){
+                  bool resultreegistration = await _regW(_codController.text);
+                  if(resultreegistration){
+                    // Navigator.pushNamed(context, '/home');
+                  }
+                  else{
+                    //TODO: errore dialog
+                  }
+                // }else{
+                //     //TODO: errore dialog
+                //   }
                 },
-                text: 'Готово',
+                text: 'Подтвердить',
               ),
             ],
           ),
@@ -142,23 +154,21 @@ class _SingUpScreenState extends State<SingUpScreen> {
       ),
     );
   }
-  Future _regW()async{
+  Future<bool> _regW(String code) async {
     String email = "k4fos568rhvx7ua@gmail.com";
+    EmailUser user = EmailUser(email, code, password:'nikita123');
+    SignInResult  resultregistrationEmail = await AGCAuth.instance.createEmailUser(user);
+    if(resultregistrationEmail.user == null){
+      return false;
+    }
+    return true;
+  }
 
+  Future<bool> _reqCode() async {
+    String email = "k4fos568rhvx7ua@gmail.com";
     VerifyCodeSettings settings = VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 30);
     VerifyCodeResult? resultVerifyCode = await EmailAuthProvider.requestVerifyCode(email,settings);
-
-    EmailUser user = EmailUser(email, resultVerifyCode!.shortestInterval!, password:'nikita123');
-    AGCAuth.instance.createEmailUser(user)
-    .then((signInResult) async{
-      // success
-      AGCUser? currentUserData =await AGCAuth.instance.currentUser;
-    })
-    .catchError((error) {
-      //fail
-      print(error);
-    });
-
+    return resultVerifyCode != null;
   }
 
   MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {
@@ -172,7 +182,15 @@ class _SingUpScreenState extends State<SingUpScreen> {
     return MaterialStateProperty.resolveWith(getColor);
   }
 
-  void _submiForm() {
+  bool _submiForm() {
+    //TODO: проверить правильно ли у пользователя заполнен пароль (не меньше 8 символов и двух типов, правило в Huawei) и почта (присутствие знака @)
+    String password = '';
+    String login = '';
+    var regExp_Email = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(login);
+    var regExp_Password = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(password);
+    if(regExp_Email && regExp_Password && password.length > 8){}else{
+      return false;
+    }
     if (_formKey.currentState!.validate()) {
       _showDialog(name: _nameController.text);
       print('имя: ${_nameController}');
@@ -180,8 +198,10 @@ class _SingUpScreenState extends State<SingUpScreen> {
       print('phone: ${_codController}');
       print('email: ${_emailController}');
       // Navigator.pushNamed(context, '/home');
+      return true;
     } else {
       _showMessage(message: 'Поля неправильно заполнены, поробуйте еще раз.');
+      return false;
     }
   }
 
