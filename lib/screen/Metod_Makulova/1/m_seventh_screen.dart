@@ -11,19 +11,12 @@ class MSeventhScreen extends StatelessWidget {
   MSeventhScreen({super.key});
 
   final _oldRfocus = FocusNode();
-
   final _otherpeoplefocus = FocusNode();
-
   final _placeRsfocus = FocusNode();
-
   final _situationRfocus = FocusNode();
-
   final oldRController = TextEditingController();
-
   final otherpeopleRController = TextEditingController();
-
   final placesRController = TextEditingController();
-
   final situationRController = TextEditingController();
 
   @override

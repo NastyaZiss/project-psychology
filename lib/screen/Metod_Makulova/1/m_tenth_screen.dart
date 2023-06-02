@@ -7,14 +7,8 @@ import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 
-class MTenthScreen extends StatefulWidget {
-  const MTenthScreen({super.key});
+class MTenthScreen extends StatelessWidget {
 
-  @override
-  State<MTenthScreen> createState() => _MTenthScreenState();
-}
-
-class _MTenthScreenState extends State<MTenthScreen> {
   final _aboutWorldfocus = FocusNode();
   final _conclusionfocus = FocusNode(); //
   final _aboutOthersfocus = FocusNode();
@@ -29,23 +23,6 @@ class _MTenthScreenState extends State<MTenthScreen> {
   final decisiontoActController = TextEditingController();
   final aboutYoutselfController = TextEditingController();
 
-  @override
-  void dispose() {
-    _aboutWorldfocus.dispose();
-    _conclusionfocus.dispose();
-    _aboutOthersfocus.dispose();
-    _decidedBehavesfocus.dispose();
-    _aboutYoutselffocus.dispose();
-    _decisiontoActfocus.dispose();
-
-    aboutYoutselfController.dispose();
-    decidedBehaveController.dispose();
-    aboutOthersController.dispose();
-    aboutWorldController.dispose();
-    conclusionController.dispose();
-    decisiontoActController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

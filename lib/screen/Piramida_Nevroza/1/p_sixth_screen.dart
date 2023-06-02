@@ -9,14 +9,7 @@ import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 
-class PSixthScreen extends StatefulWidget {
-  const PSixthScreen({super.key});
-
-  @override
-  State<PSixthScreen> createState() => _PSixthScreenState();
-}
-
-class _PSixthScreenState extends State<PSixthScreen> {
+class PSixthScreen extends StatelessWidget {
   final _insctinctfocus = FocusNode();
 
   final instinctController = TextEditingController();
@@ -43,13 +36,6 @@ class _PSixthScreenState extends State<PSixthScreen> {
                 akText: 'Клиент: Похоже на легкость',
                 number: '1. ',
               ),
-              // TextFormFieldWidget(
-              //   focusNode: _insctinctfocus,
-              //   nextFocus: _insctinctfocus,
-              //   currentFocus: _insctinctfocus,
-              //   textChild: ('Чувство'),
-              //   Controller: instinctController,
-              // ),
               SizedBox(
                 height: 20,
               ),

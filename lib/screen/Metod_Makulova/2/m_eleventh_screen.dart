@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/info_classes/m_info.dart';
 import 'package:skripts/info_classes/p_controller.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
@@ -47,107 +48,47 @@ class _MEleventhScreenState extends State<MEleventhScreen> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(17.0),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '1. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Там и тогда в $oldR лет, когда $situationR, сконцентрируйся на этом чувстве $placebody. ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              TextNum(
+                numText: '1. ',
+                mainText:
+                    'Там и тогда в $oldR лет, когда $situationR, сконцентрируйся на этом чувстве $placebody. ',
               ),
               SizedBox(
                 height: 10,
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: '2. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Находясь там и тогда в возрасте «$oldR » (возраст психотравмы), ты уже знаешь, что часто чувства не растут на пустом месте. Возможно, до этого было что-то, что послужило почвой для острой реакции на «$situationR» (описание травмы). Поэтому там и тогда сконцентрируйся на этом чувстве «$placebody»',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: '2. ',
+                mainText:
+                    'Находясь там и тогда в возрасте «$oldR » (возраст психотравмы), ты уже знаешь, что часто чувства не растут на пустом месте. Возможно, до этого было что-то, что послужило почвой для острой реакции на «$situationR» (описание травмы). Поэтому там и тогда сконцентрируйся на этом чувстве «$placebody»',
               ),
               SizedBox(
                 height: 10,
               ),
-              // RichText(
-              //   text: TextSpan(
-              //       style: TextStyleG.h3baseTextStyle,
-              //       children: <TextSpan>[
-              //         new TextSpan(
-              //             text: '1. ', style: TextStyleG.h3boldTextStyle),
-              //         new TextSpan(
-              //             text:
-              //                 'Там и тогда в $oldR, когда $situationR, сконцентрируйся на этом чувстве $placebody. ',
-              //             style: TextStyleG.h3baseTextStyle),
-              //       ]),
-              // ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: 'Пять. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text: 'Все образы пропадают, а чувство остается',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: 'Пять. ',
+                mainText: 'Все образы пропадают, а чувство остается',
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: 'Четыре. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Оно начинает тянуть тебя за собой, назад, вниз, вглубь в более ранние ситуации, связанные с данным чувством. ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: 'Четыре. ',
+                mainText:
+                    'Оно начинает тянуть тебя за собой, назад, вниз, вглубь в более ранние ситуации, связанные с данным чувством. ',
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: 'Три. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'В бессознательном всплывают все ситуации, связанные с данным чувством. ',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: 'Три. ',
+                mainText:
+                    'В бессознательном всплывают все ситуации, связанные с данным чувством. ',
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: 'Два. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              'Еще ниже и глубже. Настолько глубоко, что когда я хлопну в ладоши и скажу «причина», ты окажешься в самой ранней ситуации, связанной с данным чувством, в том моменте, когда оно появилось в первый раз.',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: 'Два. ',
+                mainText:
+                    'Еще ниже и глубже. Настолько глубоко, что когда я хлопну в ладоши и скажу «причина», ты окажешься в самой ранней ситуации, связанной с данным чувством, в том моменте, когда оно появилось в первый раз.',
               ),
-              RichText(
-                text: TextSpan(
-                    style: TextStyleG.h3baseTextStyle,
-                    children: <TextSpan>[
-                      new TextSpan(
-                          text: 'Один. ', style: TextStyleG.h3boldTextStyle),
-                      new TextSpan(
-                          text:
-                              '«Причина» (хлопаем в ладоши). Ты там. Как выглядишь, где находишься? Внутри или снаружи?',
-                          style: TextStyleG.h3baseTextStyle),
-                    ]),
+              TextNum(
+                numText: 'Один. ',
+                mainText:
+                    '«Причина» (хлопаем в ладоши). Ты там. Как выглядишь, где находишься? Внутри или снаружи?',
               ),
               SizedBox(
                 height: 20,

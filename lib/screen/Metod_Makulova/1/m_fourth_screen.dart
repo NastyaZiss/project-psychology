@@ -7,36 +7,19 @@ import 'package:skripts/widget/app_bar.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 
-class MFourthScreen extends StatefulWidget {
+class MFourthScreen extends StatelessWidget {
   const MFourthScreen({super.key});
-
-  @override
-  State<MFourthScreen> createState() => _MFourthScreenState();
-}
-
-class _MFourthScreenState extends State<MFourthScreen> {
-  final _placefocus = FocusNode();
-  final _aboutnegativfocus = FocusNode();
-  final _placeTwofocus = FocusNode();
-
-  final placeController = TextEditingController();
-  final aboutnegativController = TextEditingController();
-  final placeTwoController = TextEditingController();
-
-  @override
-  void dispose() {
-    placeController.dispose();
-    aboutnegativController.dispose();
-    placeTwoController.dispose();
-    _placeTwofocus.dispose();
-    _aboutnegativfocus.dispose();
-    _placefocus.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     final placeandaboutnegativ = Provider.of<Diagnostic>(context);
+    final _placefocus = FocusNode();
+    final _aboutnegativfocus = FocusNode();
+    final _placeTwofocus = FocusNode();
+
+    final placeController = TextEditingController();
+    final aboutnegativController = TextEditingController();
+    final placeTwoController = TextEditingController();
 
     return Scaffold(
       appBar: AppBarG(
@@ -47,10 +30,11 @@ class _MFourthScreenState extends State<MFourthScreen> {
         child: Padding(
           padding: const EdgeInsets.all(17.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextNum(
                   mainText:
-                      'Закрой глаза. Мысленно окажитесь в этой ситуации ? ',
+                      'Закрой глаза. Мысленно окажитесь в этой ситуации? ',
                   numText: '1.	'),
               TextNum(
                   mainText:
@@ -88,9 +72,6 @@ class _MFourthScreenState extends State<MFourthScreen> {
                   mainText:
                       '	Где это чувство? Там же в груди или сместилось? Например, сместилось в живот. ',
                   numText: '5.	'),
-              // SizedBox(
-              //   height: 15,
-              // ),
               TextFormFieldWidget(
                 focusNode: _placefocus,
                 currentFocus: _placefocus,

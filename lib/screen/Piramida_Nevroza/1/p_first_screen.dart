@@ -17,17 +17,6 @@ class PFirstScreen extends StatelessWidget {
   final situationController = TextEditingController();
   final changefellingController = TextEditingController();
 
-  // @override
-  // void dispose() {
-  //   _problemfocus.dispose();
-  //   _situationfocus.dispose();
-  //   _changefellingfocus.dispose();
-  //   problemController.dispose();
-  //   situationController.dispose();
-  //   changefellingController.dispose();
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final name = Provider.of<Name>(context).name;

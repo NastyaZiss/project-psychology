@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:skripts/screen/Metod_Makulova/3/m_twelfteenth_screen.dart';
 
 import '../../../../info_classes/m_inference.dart';
 import '../../../../info_classes/m_info.dart';
@@ -40,79 +41,29 @@ class MTwentyThreeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '1. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                '1. Там и тогда, в $oldR, когда «$situationR», сконцентрируйся на чувстве « $instinct $placebodyR».',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
+                TextNum(
+                  numText: '1. ',
+                  mainText:
+                      'Там и тогда, в $oldR, когда «$situationR», сконцентрируйся на чувстве « $instinct $placebodyR».',
                 ),
-                SizedBox(
-                  height: 10,
+                TextNum(
+                  numText: '2.',
+                  mainText: ' Входи в него, становись этим чувством. ',
                 ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '2.', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text: ' Входи в него, становись этим чувством. ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
+                TextNum(
+                  numText: '3. ',
+                  mainText:
+                      'Обрати внимание, как вибрация, пульсация этого чувства отличается от вибрации всего остального тела. Принимай его вибрацию и вместе с ним начинай там вибрировать, пульсировать выражая все, что не выразил. И оно начнет либо расплываться до размера всего тела, исчезать или смыкаться в точке, исчезать. ',
                 ),
-                SizedBox(
-                  height: 10,
+                TextNum(
+                  numText: '4. ',
+                  mainText:
+                      'Как почувствуешь, что больше не выражается, скажешь мне об этом (Клиент говорит: «Больше не выражается»).',
                 ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '3. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Обрати внимание, как вибрация, пульсация этого чувства отличается от вибрации всего остального тела. Принимай его вибрацию и вместе с ним начинай там вибрировать, пульсировать выражая все, что не выразил. И оно начнет либо расплываться до размера всего тела, исчезать или смыкаться в точке, исчезать. ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '4. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Как почувствуешь, что больше не выражается, скажешь мне об этом (Клиент говорит: «Больше не выражается»).',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                RichText(
-                  text: TextSpan(
-                      style: TextStyleG.h3baseTextStyle,
-                      children: <TextSpan>[
-                        new TextSpan(
-                            text: '5. ', style: TextStyleG.h3boldTextStyle),
-                        new TextSpan(
-                            text:
-                                'Если раньше было сто процентов этого «желания спрятаться», то сколько сейчас остается? ',
-                            style: TextStyleG.h3baseTextStyle),
-                      ]),
-                ),
-                SizedBox(
-                  height: 20,
+                TextNum(
+                  numText: '5. ',
+                  mainText:
+                      'Если раньше было сто процентов этого «желания спрятаться», то сколько сейчас остается? ',
                 ),
                 TextFormFieldWidget(
                     textChild: 'проценты',

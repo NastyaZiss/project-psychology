@@ -7,15 +7,9 @@ import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../3/m_twelfteenth_screen.dart';
 
-class MFifthScreen extends StatefulWidget {
+class MFifthScreen extends StatelessWidget {
   const MFifthScreen({super.key});
 
-  @override
-  State<MFifthScreen> createState() => _MFifthScreenState();
-}
-
-class _MFifthScreenState extends State<MFifthScreen> {
-  @override
   Widget build(BuildContext context) {
     final problem = Provider.of<Problem>(context).problem;
     final aboutnegativ = Provider.of<Diagnostic>(context).aboutnegativ;

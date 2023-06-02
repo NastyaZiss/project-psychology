@@ -7,14 +7,7 @@ import '../../../info_classes/m_yudro.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 
-class MTwelfScreen extends StatefulWidget {
-  const MTwelfScreen({super.key});
-
-  @override
-  State<MTwelfScreen> createState() => _MTwelfScreenState();
-}
-
-class _MTwelfScreenState extends State<MTwelfScreen> {
+class MTwelfScreen extends StatelessWidget {
   final _situationYfocus = FocusNode();
   final _oldYfocus = FocusNode();
   final _otherpeopleYfocus = FocusNode();
@@ -90,8 +83,7 @@ class _MTwelfScreenState extends State<MTwelfScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // instinct.changeD(decisionController.text);
-          // print(instinct.decision.toString());
+          
           yudro.changeOY(oldYController.text);
           yudro.changeSY(situationYController.text);
           yudro.changeOPRY(otherpeopleYController.text);

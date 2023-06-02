@@ -67,21 +67,11 @@ class _MFirstScreenState extends State<MFirstScreen> {
               ),
               Form(
                   child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  RichText(
-                    text: TextSpan(
-                        style: TextStyleG.h3baseTextStyle,
-                        children: <TextSpan>[
-                          new TextSpan(
-                              text: '1. ', style: TextStyleG.h3boldTextStyle),
-                          new TextSpan(
-                              text:
-                                  '$name, чем конкретно вы хотите поработать?',
-                              style: TextStyleG.h3baseTextStyle),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 20,
+                  TextNum(
+                    numText: '1. ',
+                    mainText: '$name, чем конкретно вы хотите поработать?',
                   ),
                   TextFormFieldWidget(
                     focusNode: _problemfocus,
@@ -93,20 +83,9 @@ class _MFirstScreenState extends State<MFirstScreen> {
                   SizedBox(
                     height: 20,
                   ),
-                  RichText(
-                    text: TextSpan(
-                        style: TextStyleG.h3baseTextStyle,
-                        children: <TextSpan>[
-                          new TextSpan(
-                              text: '2. ', style: TextStyleG.h3boldTextStyle),
-                          new TextSpan(
-                              text:
-                                  'В каких ситуациях это составляет проблему?',
-                              style: TextStyleG.h3baseTextStyle),
-                        ]),
-                  ),
-                  SizedBox(
-                    height: 20,
+                  TextNum(
+                    numText: '2. ',
+                    mainText: 'В каких ситуациях это составляет проблему?',
                   ),
                   TextFormFieldWidget(
                     focusNode: _situationfocus,
@@ -122,9 +101,6 @@ class _MFirstScreenState extends State<MFirstScreen> {
                     numText: '3. ',
                     mainText:
                         'Как бы вы хотели себя чувствовать в этих ситуациях вместо этого?',
-                  ),
-                  SizedBox(
-                    height: 20,
                   ),
                   TextFormFieldWidget(
                     focusNode: _changefellingfocus,

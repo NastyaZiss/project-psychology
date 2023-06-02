@@ -6,29 +6,14 @@ import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../../../widget/text_input.dart';
 
-class MEighthScreen extends StatefulWidget {
-  const MEighthScreen({super.key});
+class MEighthScreen extends StatelessWidget {
+  MEighthScreen({super.key});
 
-  @override
-  State<MEighthScreen> createState() => _MEighthScreenState();
-}
-
-class _MEighthScreenState extends State<MEighthScreen> {
   final _instinctIfocus = FocusNode();
   final _placeIfocus = FocusNode();
 
   final placeIController = TextEditingController();
   final instinctIController = TextEditingController();
-
-  @override
-  void dispose() {
-    instinctIController.dispose();
-    _instinctIfocus.dispose();
-
-    placeIController.dispose();
-    _placeIfocus.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -72,3 +72,58 @@
 //   });
 // }
 
+
+
+
+//   import 'package:agconnect_auth/agconnect_auth.dart';
+
+// /// ## Register after confirm email
+//   /// ### Parametr
+//   /// * this veryfiCode
+//   /// * this email
+//   /// * this password
+//   /// ### Result
+//   /// * this AGCUser? data
+//   static registrationEmail_verify(String veryfiCode)async{
+//     String email = "viskochka77@gmail.com";
+
+//     // VerifyCodeSettings settings = VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 30);
+//     // VerifyCodeResult? resultVerifyCode = await EmailAuthProvider.requestVerifyCode(email,settings);
+    
+//     EmailUser user = EmailUser(email, veryfiCode, password:'123A@qwert');
+//     StreamController<AGCUser?> _streamContr = StreamController();
+//     // StreamController<String?> _streamContrErrore = StreamController();
+//     SignInResult signInUser = await AGCAuth.instance.createEmailUser(user);
+//     AGCUser? currentUser =await AGCAuth.instance.currentUser;
+//     //     .then((signInResult) async{
+//     //       // success
+//     //       AGCUser? currentUser =await AGCAuth.instance.currentUser;
+//     //       _streamContr.add(currentUser);
+//     //       _streamContrErrore.add(null);
+//     //     })
+//     //     .catchError((error) {
+//     //       //fail
+//     //         _streamContr.add(null);
+//     //         _streamContrErrore.add(error.toString());
+//     //       print("Errrore REGISTR "+error.toString());
+//     //     });
+//     // AGCUser? data = await _streamContr.stream.last;
+//     // String? erore = await _streamContrErrore.stream.last;
+    
+//     // if(erore != null){
+//     //   return false;
+//     // }
+//     if(signInUser.user!=null){
+//       return true;
+//     }else{
+//       return false;
+//     }
+//   }
+
+//   static Future<bool> requirestConfirmEmail(RegistrationEmail dataRegistration)async{
+//     String email = "viskochka77@gmail.com";
+
+//     VerifyCodeSettings settings = VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 30);
+//     VerifyCodeResult? resultVerifyCode = await EmailAuthProvider.requestVerifyCode(email,settings);
+//     return resultVerifyCode != null;
+//   }

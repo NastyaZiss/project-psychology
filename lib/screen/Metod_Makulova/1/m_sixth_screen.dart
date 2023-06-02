@@ -6,15 +6,9 @@ import 'package:skripts/widget/app_bar.dart';
 import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 
-class MSixthScreen extends StatefulWidget {
+class MSixthScreen extends StatelessWidget {
   const MSixthScreen({super.key});
 
-  @override
-  State<MSixthScreen> createState() => _MSixthScreenState();
-}
-
-class _MSixthScreenState extends State<MSixthScreen> {
-  @override
   Widget build(BuildContext context) {
     final problem = Provider.of<Problem>(context).problem;
     final aboutnegativ = Provider.of<Diagnostic>(context).aboutnegativ;

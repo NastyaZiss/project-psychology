@@ -8,21 +8,9 @@ import '../../../info_classes/m_info.dart';
 import '../../../utils/text_style.dart';
 import '../metod_makulova_screen.dart';
 
-class MNinthScreen extends StatefulWidget {
+class MNinthScreen extends StatelessWidget {
   MNinthScreen({super.key});
 
-  @override
-  State<MNinthScreen> createState() => _MNinthScreenState();
-
-  // @override
-  // void dispose() {
-  //   _decisionfocus.dispose();
-  //   decisionController.dispose();
-  //   super.dispose();
-  // }
-}
-
-class _MNinthScreenState extends State<MNinthScreen> {
   final _decisionfocus = FocusNode();
 
   final decisionController = TextEditingController();
@@ -90,25 +78,3 @@ class _MNinthScreenState extends State<MNinthScreen> {
     );
   }
 }
-
-
-
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(
-//           'РЕШЕНИЕ',
-//           style: TextStyleG.AppBarTextStyle,
-//         ),
-//       ),
-//       body: SafeArea(
-//         child: Padding(
-//           padding: const EdgeInsets.all(17.0),
-//           child: Column(children: [
-            
-//           ]),
-//         ),
-//       ),
-//     );
-//   }
-// }

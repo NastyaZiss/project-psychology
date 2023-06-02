@@ -7,43 +7,12 @@ import '../../info_classes/p_belief.dart';
 import '../../main.dart';
 import '../../widget/text_input.dart';
 
-class MetodMakulovaScreen extends StatefulWidget {
-  MetodMakulovaScreen({super.key});
-
-  // var text = new RichText(
-  //   text: new TextSpan(
-  //       // // Note: Styles for Text Spans must be explicitly defined.
-  //       // Child text spans will inherit styles from parent
-  //       style: TextStyle(
-  //         fontSize: 14.0,
-  //         color: Colors.black,
-  //       ),
-  //       children: <TextSpan>[
-  //         new TextSpan(text: 'Hello'),
-  //         new TextSpan(
-  //             text: 'World', style: new TextStyle(fontWeight: FontWeight.bold)),
-  //       ]),
-  // );
-
-  @override
-  State<MetodMakulovaScreen> createState() => _MetodMakulovaScreenState();
-}
-
-class _MetodMakulovaScreenState extends State<MetodMakulovaScreen> {
+class MetodMakulovaScreen extends StatelessWidget {
   final _namefocus = FocusNode();
   final _datafocus = FocusNode();
 
   final nameController = TextEditingController();
   final dataController = TextEditingController();
-
-  @override
-  void dispose() {
-    _namefocus.dispose();
-    _datafocus.dispose();
-    nameController.dispose();
-    dataController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

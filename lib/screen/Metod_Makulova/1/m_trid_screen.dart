@@ -5,32 +5,8 @@ import 'package:skripts/widget/app_bar.dart';
 
 import '../../../utils/text_style.dart';
 
-class MTridScreen extends StatefulWidget {
+class MTridScreen extends StatelessWidget {
   const MTridScreen({super.key});
-
-  @override
-  State<MTridScreen> createState() => _MTridScreenState();
-}
-
-class _MTridScreenState extends State<MTridScreen> {
-  // final _problemfocus = FocusNode();
-  // final _situationfocus = FocusNode();
-  // final _levfocus = FocusNode();
-
-  // final problemController = TextEditingController();
-  // final situationController = TextEditingController();
-  // final levController = TextEditingController();
-
-  // @override
-  // void dispose() {
-  //   _problemfocus.dispose();
-  //   _situationfocus.dispose();
-  //   _levfocus.dispose();
-  //   problemController.dispose();
-  //   situationController.dispose();
-  //   levController.dispose();
-  //   super.dispose();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -45,15 +21,6 @@ class _MTridScreenState extends State<MTridScreen> {
             padding: const EdgeInsets.all(17.0),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'Цель',
-              //       style: TextStyleG.h2TextStyle,
-              //     ),
-              //   ],
-              // ),
               SizedBox(
                 height: 30,
               ),
