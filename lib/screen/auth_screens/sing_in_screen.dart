@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-
-
 import 'package:agconnect_auth/agconnect_auth.dart';
 
 import '../../utils/text_style.dart';
@@ -39,7 +37,6 @@ class _SinginScreenState extends State<SinginScreen> {
       print('onError: $error');
     });
   }
-
 
   void dispose() {
     _pasController.dispose();
@@ -121,13 +118,15 @@ class _SinginScreenState extends State<SinginScreen> {
                       height: 30,
                     ),
                     OkButtom(
-                        submiForm: () async{
-                          bool resultAuth =await _authW();
-                          if(resultAuth){
-                            // Navigator.pushNamed(context, '/home');
-                          }else{
-                            //TODO: errore alert dialog
-                          }
+                        submiForm: () {
+                          _authW(
+                            success: () {
+                              Navigator.pushNamed(context, '/home');
+                            },
+                            error: () {
+                              //TODO: errore alert dialog
+                            },
+                          );
                         },
                         text: 'Готово'),
                   ]),
@@ -140,56 +139,20 @@ class _SinginScreenState extends State<SinginScreen> {
     );
   }
 
-  Future<bool> _authW() async {
-    // EmailUser emailUser = EmailUser("email","verifycode", password: "password") ;
-    // AGCAuthCredential agcAuthCredential = AGCAuthCredential(AuthProviderType.email);
-    // SignInResult dsdsd = await AGCAuth.instance.createEmailUser(emailUser);
-    // await AGCAuth.instance.resetPasswordWithEmail("k4fos568rhvx7ua@gmail.com","nikita123", "verifycode" );
-    // AGCUser? currentUser = await AGCAuth.instance.currentUser;
-    // TokenResult token  = await currentUser!.getToken();
-    // SignInResult resultSignIn = await AGCAuth.instance.signIn(agcAuthCredential);
-    // print(resultSignIn.user);
-
-    // if(resultSignIn.user == null){
-    //   return false;
-    // }
-
-    // EmailUser user = EmailUser("email","verifycode", password: "password") ;
-    // AGCAuth.instance.createEmailUser(user);
-
-
-    // AGCAuth.instance.currentUser
-    // .then((user){
-    //     if (user != null) {
-    //            //A user has signed in.
-    //         }    
-    // });
-
-    /// --------------
-    // AGCAuthCredential credential = PhoneAuthProvider.credentialWithPassword('your countrycode','your phone number', 'your password');
-    // AGCAuth.instance.signIn(credential)
-    // .then((signInResult){
-    //       //get user info
-    //       AGCUser? user = signInResult.user?;
-    // })
-    // .catchError((error){
-    //    //fail
-    // });
-
-    AGCAuthCredential credential = EmailAuthProvider.credentialWithPassword('k4fos568rhvx7ua@gmail.com', 'nikita123');
-    AGCAuth.instance.signIn(credential)
-    .then((signInResult)async{
-          //get user info
-          AGCUser? user = signInResult.user;
-          AGCUser? currentUser = await AGCAuth.instance.currentUser;
-          print("Success AUTH "+user.toString() );
-    })
-    .catchError((error){
-       //fail
-       print("Errrore AUTH "+error.toString() );
+  void _authW({required Function() success, required Function() error}) {
+    AGCAuthCredential credential = EmailAuthProvider.credentialWithPassword(
+        'k4fos568rhvx7ua@gmail.com', 'nikita123');
+    AGCAuth.instance.signIn(credential).then((signInResult) async {
+      //get user info
+      AGCUser? user = signInResult.user;
+      AGCUser? currentUser = await AGCAuth.instance.currentUser;
+      print("Success AUTH " + user.toString());
+      success();
+    }).catchError((error) {
+      error();
+      //fail
+      print("Errrore AUTH " + error.toString());
     });
-
-    return false;
   }
 
   // void _submiForm() {}

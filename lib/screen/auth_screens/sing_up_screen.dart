@@ -97,20 +97,49 @@ class _SingUpScreenState extends State<SingUpScreen> {
                 obscureText: false,
                 textChild: 'Email',
                 Controller: _emailController,
-                vallid_fun: null,
+                vallid_fun: (value) {
+                  if (value.isEmpty) return 'Пожалуйста введите свой Email';
+                },
                 mask: MaskTextInputFormatter(),
               ),
               SizedBox(
                 height: 20,
               ),
               OkButtom(
-                  submiForm: () {
-                    // sendSigninVerificationCode(_emailController.toString());
-                    //  bool validation =  _submiForm();
-                    // if(validation)
-                      _reqCode();
-                      },
-                  text: 'Отправить код на Email'),
+                submiForm: () {
+                  String email = _emailController.text;
+
+                  if (email == null || email.isEmpty) {
+                    _showMessage(color: Colors.red, message: 'Пустой Email');
+                  } else {
+                    print(email);
+                    _reqCode(email);
+                  }
+                },
+                text: 'Отправить код на Email',
+              ),
+              // sendSigninVerificationCode(_emailController.toString());
+              //  bool validation =  _submiForm();
+              // if(validation)
+              // print('email');
+              // if (_emailController.text == 'x') {
+              //   // _reqCode(_emailController.text);
+              //   _submiForm();
+              //   print('ji');
+              // } else {
+              //   _showMessage(color: Colors.red, message: 'Пустой Email');
+              // }
+              //   if (_formKey.currentState!.validate()) {
+              //     _reqCode(_emailController.text);
+              //   } else {
+              //     _showMessage(
+              //         message:
+              //             'Поля неправильно заполнены, поробуйте еще раз.',
+              //         color: Colors.red);
+              //     return false;
+              //   }
+              // },
+              // text: 'Отправить код на Email'),)
               SizedBox(
                 height: 20,
               ),
@@ -133,20 +162,11 @@ class _SingUpScreenState extends State<SingUpScreen> {
               ),
               OkButtom(
                 submiForm: () async {
-                //   bool validation =  _submiForm();
-                //  if(validation){
-                  bool resultreegistration = await _regW(_codController.text);
-                  if(resultreegistration){
-                    // Navigator.pushNamed(context, '/home');
-                  }
-                  else{
-                    //TODO: errore dialog
-                  }
-                // }else{
-                //     //TODO: errore dialog
-                //   }
+                  _submiForm();
+                  _regW(_nameController.text, _emailController.text,
+                      _passController.text, _codController.text);
                 },
-                text: 'Подтвердить',
+                text: 'Зарегестрироваться',
               ),
             ],
           ),
@@ -154,53 +174,67 @@ class _SingUpScreenState extends State<SingUpScreen> {
       ),
     );
   }
-  Future<bool> _regW(String code) async {
-    String email = "k4fos568rhvx7ua@gmail.com";
-    EmailUser user = EmailUser(email, code, password:'nikita123');
-    SignInResult  resultregistrationEmail = await AGCAuth.instance.createEmailUser(user);
-    if(resultregistrationEmail.user == null){
+
+  /// Регистрация пользователя, предеча кода, пароля и почты
+  Future<bool> _regW(
+      String name, String email, String password, String code) async {
+    EmailUser user = EmailUser(email, code, password: password);
+    SignInResult resultregistrationEmail =
+        await AGCAuth.instance.createEmailUser(user);
+    if (resultregistrationEmail.user == null) {
       return false;
     }
     return true;
   }
 
-  Future<bool> _reqCode() async {
-    String email = "k4fos568rhvx7ua@gmail.com";
-    VerifyCodeSettings settings = VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 30);
-    VerifyCodeResult? resultVerifyCode = await EmailAuthProvider.requestVerifyCode(email,settings);
-    return resultVerifyCode != null;
-  }
+  /// запрос кода подтвржения на почту
+  ///
+  Future<bool> _reqCode(String email) async {
+    _showMessage(message: 'Проверьте почту', color: Colors.green);
 
-  MaterialStateProperty<Color> getColor(Color color, Color colorPressed) {
-    final getColor = (Set<MaterialState> states) {
-      if (states.contains(MaterialState.pressed)) {
-        return colorPressed;
-      } else {
-        return color;
-      }
-    };
-    return MaterialStateProperty.resolveWith(getColor);
+    print('email SEND');
+    VerifyCodeSettings settings =
+        VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 5);
+    try {
+      VerifyCodeResult? resultVerifyCode =
+          await EmailAuthProvider.requestVerifyCode(email, settings);
+      return resultVerifyCode != null;
+    } catch (error) {
+      _showMessage(message: 'ERROR', color: Colors.red);
+      print('ERRoR');
+      // _showDialog(name: 'ljg');
+      return false;
+    }
   }
 
   bool _submiForm() {
+    print('sdg');
     //TODO: проверить правильно ли у пользователя заполнен пароль (не меньше 8 символов и двух типов, правило в Huawei) и почта (присутствие знака @)
-    String password = '';
-    String login = '';
-    var regExp_Email = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(login);
-    var regExp_Password = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(password);
-    if(regExp_Email && regExp_Password && password.length > 8){}else{
-      return false;
-    }
+    // String password = '';
+    // String login = '';
+    // var regExp_Email = RegExp(
+    //         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+    //     .hasMatch(login);
+    // var regExp_Password =
+    //     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+    //         .hasMatch(password);
+    // if (_emailController.text.length && _passController.text.length && password.length > 8) {
+    // } else {
+    //   return false;
+    // }
     if (_formKey.currentState!.validate()) {
-      _showDialog(name: _nameController.text);
+      // _showDialog(name: _nameController.text);
       print('имя: ${_nameController}');
       print('pass: ${_passController}');
       print('phone: ${_codController}');
       print('email: ${_emailController}');
       // Navigator.pushNamed(context, '/home');
+      print('js');
       return true;
     } else {
-      _showMessage(message: 'Поля неправильно заполнены, поробуйте еще раз.');
+      _showMessage(
+          message: 'Поля неправильно заполнены, поробуйте еще раз.',
+          color: Colors.red);
       return false;
     }
   }
@@ -233,9 +267,9 @@ class _SingUpScreenState extends State<SingUpScreen> {
         });
   }
 
-  void _showMessage({String? message}) {
+  void _showMessage({String? message, required MaterialColor color}) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        backgroundColor: Colors.red[300],
+        backgroundColor: color,
         duration: Duration(seconds: 3),
         content: Text(
           message!,
@@ -310,17 +344,16 @@ class _PassWidgetFieldState extends State<PassWidgetField> {
   }
 }
 
-
- // TextFormFieldSingInWidget(
-              //   // currentFocus: _phonefocus,
-              //   // nextFocus: _emailfocus,
-              //   // focusNode: _phonefocus,
-              //   Texthelper: 'Формат +7хххххxххxx',
-              //   textChild: 'Номер телефона',
-              //   TypeKeyboard: TextInputType.phone,
-              //   Controller: _phoneController,
-              //   vallid_fun: (val) =>
-              //       val.isEmpty ? 'Введите свой номер телефона' : null,
-              //   obscureText: false,
-              //   mask: maskFormatter,
-              // ),
+// TextFormFieldSingInWidget(
+//   // currentFocus: _phonefocus,
+//   // nextFocus: _emailfocus,
+//   // focusNode: _phonefocus,
+//   Texthelper: 'Формат +7хххххxххxx',
+//   textChild: 'Номер телефона',
+//   TypeKeyboard: TextInputType.phone,
+//   Controller: _phoneController,
+//   vallid_fun: (val) =>
+//       val.isEmpty ? 'Введите свой номер телефона' : null,
+//   obscureText: false,
+//   mask: maskFormatter,
+// ),

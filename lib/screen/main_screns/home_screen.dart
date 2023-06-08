@@ -27,37 +27,39 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SafeArea(
           child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MainButtom(
-              text: 'Метод Макулова',
-              fun_onPressed: () {
-                Navigator.pushNamed(context, '/MetodMakulova');
-              },
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            MainButtom(
-                text: 'Пирамида Невроза',
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MainButtom(
+                text: 'Метод Макулова',
                 fun_onPressed: () {
-                  belief.clear();
-                  Navigator.pushNamed(context, '/PiramidaNevroza');
-                }),
-            MainButtom(
-              text: 'Регистрация',
-              fun_onPressed: () {
-                Navigator.pushNamed(context, '/singup');
-              },
-            ),
-            MainButtom(
-              text: 'Вход',
-              fun_onPressed: () {
-                Navigator.pushNamed(context, '/singin');
-              },
-            )
-          ],
+                  Navigator.pushNamed(context, '/MetodMakulova');
+                },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              MainButtom(
+                  text: 'Пирамида Невроза',
+                  fun_onPressed: () {
+                    belief.clear();
+                    Navigator.pushNamed(context, '/PiramidaNevroza');
+                  }),
+              MainButtom(
+                text: 'Регистрация',
+                fun_onPressed: () {
+                  Navigator.pushNamed(context, '/singup');
+                },
+              ),
+              MainButtom(
+                text: 'Вход',
+                fun_onPressed: () {
+                  Navigator.pushNamed(context, '/singin');
+                },
+              )
+            ],
+          ),
         ),
       )),
     );
