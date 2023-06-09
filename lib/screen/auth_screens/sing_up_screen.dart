@@ -179,12 +179,26 @@ class _SingUpScreenState extends State<SingUpScreen> {
   Future<bool> _regW(
       String name, String email, String password, String code) async {
     EmailUser user = EmailUser(email, code, password: password);
-    SignInResult resultregistrationEmail =
-        await AGCAuth.instance.createEmailUser(user);
-    if (resultregistrationEmail.user == null) {
+    try {
+      SignInResult resultregistrationEmail =
+          await AGCAuth.instance.createEmailUser(user);
+      if (resultregistrationEmail.user == null) {
+        return false;
+      }
+      return true;
+    } on AGCAuthException catch (e) {
+      print(e);
+      if (e == 'The user has been registered.') {
+        _showMessage(color: Colors.red, message: 'Вы уже зарегестрированы');
+      }
+      if (e.code == 'account or verification code is incorrect..') {
+        _showMessage(
+            color: Colors.red, message: 'Неправильный код потверждения');
+      }
+      // _showMessage(color: Colors.red, message: 'error ${e}');
+      print('ERRRor${e.code}');
       return false;
     }
-    return true;
   }
 
   /// запрос кода подтвржения на почту
@@ -201,8 +215,9 @@ class _SingUpScreenState extends State<SingUpScreen> {
       return resultVerifyCode != null;
     } catch (error) {
       _showMessage(message: 'ERROR', color: Colors.red);
-      print('ERRoR');
+      print('ERRoR ${error}');
       // _showDialog(name: 'ljg');
+      // AGCAuthException code: AuthExceptionCode.verifyCodeIntervalLimit, message: verify code within send interval.
       return false;
     }
   }
