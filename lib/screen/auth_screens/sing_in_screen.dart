@@ -123,9 +123,7 @@ class _SinginScreenState extends State<SinginScreen> {
                             success: () {
                               Navigator.pushNamed(context, '/home');
                             },
-                            error: () {
-                              //TODO: errore alert dialog
-                            },
+                            error: () {},
                           );
                         },
                         text: 'Готово'),

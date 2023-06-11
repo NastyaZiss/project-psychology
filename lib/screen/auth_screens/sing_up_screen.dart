@@ -162,9 +162,19 @@ class _SingUpScreenState extends State<SingUpScreen> {
               ),
               OkButtom(
                 submiForm: () async {
-                  _submiForm();
-                  _regW(_nameController.text, _emailController.text,
-                      _passController.text, _codController.text);
+                  print(_submiForm());
+                  if (await _submiForm() == true) {
+                    if (await _regW(_nameController.text, _emailController.text,
+                            _passController.text, _codController.text) ==
+                        true) {
+                      _showDialog(name: 'Вы успешно зарегестрированы');
+                      Navigator.pushNamed(context, '/singin');
+                    }
+                  } else {
+                    _showMessage(
+                        color: Colors.red,
+                        message: 'Поля заполнены неправильно');
+                  }
                 },
                 text: 'Зарегестрироваться',
               ),
@@ -186,17 +196,25 @@ class _SingUpScreenState extends State<SingUpScreen> {
         return false;
       }
       return true;
-    } on AGCAuthException catch (e) {
+    } on AGCAuthException catch (error) {
+      String e = error.code.toString();
       print(e);
-      if (e == 'The user has been registered.') {
+      if (e == '203818130') {
         _showMessage(color: Colors.red, message: 'Вы уже зарегестрированы');
-      }
-      if (e.code == 'account or verification code is incorrect..') {
+      } else if (e == '203818129') {
         _showMessage(
             color: Colors.red, message: 'Неправильный код потверждения');
+      } else if (e == '203818065') {
+        _showMessage(
+            color: Colors.red,
+            message: 'Сервер: Слишком низкая надежность пароля.');
+      } else if (e == '203818064') {
+        _showMessage(
+            color: Colors.red,
+            message: 'Пароль не может совпадать с именем пользователя.');
       }
-      // _showMessage(color: Colors.red, message: 'error ${e}');
-      print('ERRRor${e.code}');
+
+      print('ERRRor ${e}');
       return false;
     }
   }
@@ -204,26 +222,37 @@ class _SingUpScreenState extends State<SingUpScreen> {
   /// запрос кода подтвржения на почту
   ///
   Future<bool> _reqCode(String email) async {
-    _showMessage(message: 'Проверьте почту', color: Colors.green);
-
     print('email SEND');
     VerifyCodeSettings settings =
         VerifyCodeSettings(VerifyCodeAction.registerLogin, sendInterval: 5);
     try {
+      _showMessage(message: 'Проверьте почту', color: Colors.green);
       VerifyCodeResult? resultVerifyCode =
           await EmailAuthProvider.requestVerifyCode(email, settings);
       return resultVerifyCode != null;
-    } catch (error) {
+    } on AGCAuthException catch (error) {
+      String e = error.code.toString();
+
+      if (e == '203818048') {
+        _showMessage(
+            color: Colors.red,
+            message:
+                'Количество отправок кодов подтверждения превышает верхний предел.');
+      } else if (e == '203818240') {
+        _showMessage(
+            color: Colors.red,
+            message: 'Не удалось отправить электронное письмо.');
+      }
+
       _showMessage(message: 'ERROR', color: Colors.red);
-      print('ERRoR ${error}');
-      // _showDialog(name: 'ljg');
-      // AGCAuthException code: AuthExceptionCode.verifyCodeIntervalLimit, message: verify code within send interval.
+      print('ERRoR ${e}');
       return false;
     }
   }
 
   bool _submiForm() {
     print('sdg');
+    print(_passController.text.toString().length);
     //TODO: проверить правильно ли у пользователя заполнен пароль (не меньше 8 символов и двух типов, правило в Huawei) и почта (присутствие знака @)
     // String password = '';
     // String login = '';
@@ -233,10 +262,7 @@ class _SingUpScreenState extends State<SingUpScreen> {
     // var regExp_Password =
     //     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
     //         .hasMatch(password);
-    // if (_emailController.text.length && _passController.text.length && password.length > 8) {
-    // } else {
-    //   return false;
-    // }
+
     if (_formKey.currentState!.validate()) {
       // _showDialog(name: _nameController.text);
       print('имя: ${_nameController}');
@@ -246,12 +272,17 @@ class _SingUpScreenState extends State<SingUpScreen> {
       // Navigator.pushNamed(context, '/home');
       print('js');
       return true;
-    } else {
-      _showMessage(
-          message: 'Поля неправильно заполнены, поробуйте еще раз.',
-          color: Colors.red);
+    }
+    if (_passController.text.length > 8) {
       return false;
     }
+    ;
+    // var regex =
+    //     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    // if (!regex.hasMatch(_passController.text)) {
+    //   return false;
+    // }
+    return false;
   }
 
   void _showDialog({required String name}) {
@@ -306,14 +337,23 @@ class _PassWidgetFieldState extends State<PassWidgetField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (val) => val!.isEmpty ? 'Введите пароль' : null,
+      validator: (val) {
+        var regex = RegExp(
+            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+        if (val.toString().length < 8) return 'Пароль слишком короткий';
+        print(val.toString().length);
+        if (val!.isEmpty) return 'Введите пароль';
+        if (!regex.hasMatch(val)) {
+          return 'Пароль не надежный';
+        }
+      },
       controller: widget.passController,
       obscureText: hidePass,
       decoration: InputDecoration(
         labelText: 'Пароль',
         filled: true,
         fillColor: Color.fromARGB(255, 248, 233, 255),
-        helperText: 'Не менее 8 символов',
+        helperText: 'Не менее 8 символов, не менее 2 двух типов символов',
         suffixIcon: IconButton(
           icon: Padding(
             padding: const EdgeInsets.only(right: 20.0),
