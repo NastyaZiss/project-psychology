@@ -168,7 +168,8 @@ class _SingUpScreenState extends State<SingUpScreen> {
                             _passController.text, _codController.text) ==
                         true) {
                       _showDialog(name: 'Вы успешно зарегестрированы');
-                      Navigator.pushNamed(context, '/singin');
+                      // Duration(seconds: 5);
+                      // Navigator.pushNamed(context, '/singin');
                     }
                   } else {
                     _showMessage(

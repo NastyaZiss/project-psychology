@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:skripts/utils/text_style.dart';
@@ -24,6 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 50,
           width: 50,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: InkWell(
+              onTap: () => Navigator.pushNamed(context, '/acc'),
+              child: Icon(
+                CupertinoIcons.person_crop_circle,
+                size: 39,
+                color: Colors.grey[600],
+                // color: Color(0xff2b003d),
+              ),
+            ),
+          )
+        ],
       ),
       body: SafeArea(
           child: Center(

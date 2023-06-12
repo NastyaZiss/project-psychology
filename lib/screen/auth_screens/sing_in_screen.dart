@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'package:agconnect_auth/agconnect_auth.dart';
+import 'package:skripts/info_classes/m_info.dart';
 
 import '../../utils/text_style.dart';
 import '../../widget/base_buttom.dart';
@@ -120,13 +121,15 @@ class _SinginScreenState extends State<SinginScreen> {
                     OkButtom(
                         submiForm: () {
                           _authW(
-                            success: () {
-                              Navigator.pushNamed(context, '/home');
-                            },
-                            error: () {},
+                            email: _emailController.text.toString(),
+                            password: _pasController.text.toString(),
                           );
+                          Navigator.pushNamed(context, '/home');
                         },
                         text: 'Готово'),
+                    ElevatedButton(
+                        onPressed: () => outLog(),
+                        child: Text('Выйти из аккаунта')),
                   ]),
                 ),
               )
@@ -137,19 +140,34 @@ class _SinginScreenState extends State<SinginScreen> {
     );
   }
 
-  void _authW({required Function() success, required Function() error}) {
-    AGCAuthCredential credential = EmailAuthProvider.credentialWithPassword(
-        'k4fos568rhvx7ua@gmail.com', 'nikita123');
+  Future<void> outLog() async {
+    return AGCAuth.instance.signOut();
+  }
+
+  void _showMessage({String? message, required MaterialColor color}) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        backgroundColor: color,
+        duration: Duration(seconds: 3),
+        content: Text(
+          message!,
+          style: const TextStyle(color: Colors.black, fontSize: 18),
+        )));
+  }
+
+  void _authW({required String email, required String password}) {
+    print('AUTHW');
+    AGCAuthCredential credential =
+        EmailAuthProvider.credentialWithPassword(email, password);
     AGCAuth.instance.signIn(credential).then((signInResult) async {
       //get user info
       AGCUser? user = signInResult.user;
       AGCUser? currentUser = await AGCAuth.instance.currentUser;
       print("Success AUTH " + user.toString());
-      success();
+      // print(AGCAuth());
+      _showMessage(color: Colors.green, message: 'Вы вошли в аккаунт!');
     }).catchError((error) {
-      error();
-      //fail
-      print("Errrore AUTH " + error.toString());
+      _showMessage(color: Colors.red, message: 'Ошибка');
+      print("Errore AUTH " + error.toString());
     });
   }
 
